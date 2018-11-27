@@ -714,7 +714,7 @@ class Superuser extends CI_Controller {
 			}
 
 			if (!empty($_FILES['cover']['name'])) {
-					$upload 	= $this->upload('./assets/images/artikel/','cover',$cover);
+					$upload 	= $this->upload('./assets/images/novel/','cover',$cover);
 					if($upload['auth']	== false){
 						echo goResult(false,$upload['msg']);
 						return;
