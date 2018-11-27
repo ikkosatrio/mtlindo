@@ -35,6 +35,7 @@ class Main extends CI_Controller {
 		$data['gambar']      = $this->m_gambar->tampil_dataBaru('gambar_album')->result();
 		$data['album']       = $this->m_album->tampil_data('album')->result();
 		$data['slider']      = $this->m_slider->tampil_data('slider')->result();
+		$data['novel']       = $this->m_produk->tampil_dataBaru('novel')->result();
 		$data['menu']        = "home";
 		echo $this->blade->nggambar('main.home',$data);
 	}

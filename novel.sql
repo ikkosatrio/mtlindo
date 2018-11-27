@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2018 at 06:44 AM
+-- Generation Time: Nov 27, 2018 at 04:14 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -273,8 +273,10 @@ CREATE TABLE `novel` (
 --
 
 INSERT INTO `novel` (`id_novel`, `created_at`, `updated_at`, `deskripsi`, `cover`, `status`, `judul`, `id_kategori`, `view`) VALUES
-(1, '2018-10-25 13:32:10', '2018-11-27 05:31:53', '<p>novel ke-2</p>\r\n', '1543296579sampul3.jpg', 0, 'Novel 2', 2, 0),
-(2, '2018-11-01 12:31:14', '2018-11-27 05:31:39', '<p>novel ke-1</p>\r\n', '1543296619novel1.jpg', 0, 'Novel 1', 1, 0);
+(1, '2018-10-25 13:32:10', '2018-11-27 13:16:08', '<p>novel ke-1</p>\r\n', '1543296579sampul3.jpg', 0, 'Novel 1', 2, 0),
+(2, '2018-11-01 12:31:14', '2018-11-27 13:16:12', '<p>novel ke-2</p>\r\n', '1543296619novel1.jpg', 0, 'Novel 2', 1, 0),
+(3, '2018-11-27 13:37:10', '2018-11-27 13:37:10', '<p>novel ke-3</p>\r\n', '1543325830sampul2.jpg', 0, 'Novel 3', 1, 0),
+(4, '2018-11-27 13:37:53', '2018-11-27 13:37:53', '<p>novel ke-4</p>\r\n', '1543325873sampul4.gif', 0, 'Novel 4', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -569,7 +571,7 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `novel`
 --
 ALTER TABLE `novel`
-  MODIFY `id_novel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_novel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pejabat`
 --
