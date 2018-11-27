@@ -4,447 +4,850 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="{{$config->meta_deskripsi}}">
-    <meta name="keywords" content="{{$config->meta_keyword}}">
-    <meta name="author" content="UNTAG">
+    <title>Firenze - Responsive Blog HTML5 Template</title>
 
-    <title>{{ucfirst($menu)}} - {{$config->name}}</title>
+    <link href="{{base_url()}}assets/template/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{base_url()}}assets/template/css/style.css" rel="stylesheet">
+    <link href="{{base_url()}}assets/template/css/shortcodes.css" rel="stylesheet">
+    <link href="{{base_url()}}assets/template/css/font-awesome.css" rel="stylesheet">
+    <link href="{{base_url()}}assets/template/css/owl.carousel.css" rel="stylesheet">
+    <link href="{{base_url()}}assets/template/css/owl.theme.css" rel="stylesheet">
 
-    <!--Favicon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="manifest" href="{{base_url()}}assets/main/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{base_url()}}assets/images/website/config/logo/{{$config->logo}}">
-    <meta name="theme-color" content="#ffffff">
+    <!-- only for demo -->
+    <link href="{{base_url()}}assets/template/css/demo-settings.css" rel="stylesheet">
 
-    <!--Favicon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}">
-    <link rel="manifest" href="{{base_url()}}assets/main/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{base_url()}}assets/images/website/config/logo/{{$config->logo}}">
-    <meta name="theme-color" content="#ffffff">
-
-   <!--    fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Raleway:800,700,500,400,600' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
-
-    <link href='https://fonts.googleapis.com/css?family=Alegreya:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-
-    <!-- Bootstrap -->
-    <link href="{{base_url()}}assets/main/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{base_url()}}assets/main/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="{{base_url()}}assets/main/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{base_url()}}assets/main/css/strock-icon.css" rel="stylesheet">
-    <!--    owl-carousel-->
-    <link rel="stylesheet" href="{{base_url()}}assets/main/vendors/owlcarousel/owl.carousel.css">
-    <link href="{{base_url()}}assets/main/vendors/rs-plugin/css/settings.css" rel="stylesheet">
-    <link href="{{base_url()}}assets/main/vendors/magnific/magnific-popup.css" rel="stylesheet">
-    <!--    css-->
-    <link rel="stylesheet" href="{{base_url()}}assets/main/css/style.css">
-    <link href="{{base_url()}}assets/js/sweetalert.min.css" rel="stylesheet" type="text/css">
-    @yield('css')
+    <!-- Custom styles for this template -->
+    <!-- <link href="css/non-responsive.css" rel="stylesheet"> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="{{base_url()}}assets/main/https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="{{base_url()}}assets/main/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
 </head>
-<body>
-<header class="row header navbar-static-top" id="main_navbar">
-    <div class="container">
-        <div class="row m0 social-info">
-            <ul class="social-icon">
-                {{-- <li><a href="{{base_url()}}assets/main/#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="{{base_url()}}assets/main/#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="{{base_url()}}assets/main/#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="{{base_url()}}assets/main/#"><i class="fa fa-linkedin"></i></a></li> --}}
-                <li class="tel"><a href="tel:{{$config->phone}}"><i class="fa fa-phone"></i> {{$config->phone}} </a></li>
-                <li class="email"><a href="mailto:{{$config->email}}"><i class="fa fa-envelope-o"></i> {{$config->email}}</a></li>
-            </ul>
-        </div>
+<body id="top">
+
+  <div class="boxed">
+
+  <div class="container container-gutter">
+
+    <!-- top menu -->
+    <div class="top-bar">
+
+        <span class="top-bar-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="advertisement.html">Advertisement</a>
+            <a href="contact.html">Contact</a>
+        </span>
+
+        <span class="top-bar-socials">
+            <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+            <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
+            <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
+            <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
+        </span>
+
     </div>
-   <div class="logo_part">
-        <div class="logo">
-            <a href="{{base_url()}}assets/main/index.html" class="brand_logo">
-                <img src="{{base_url()}}assets/images/website/config/logo/{{$config->logo}}" style="height: 48px" alt="logo image">
-            </a>
-        </div>
-    </div>
-    <div class="main-menu">
-        <nav class="navbar navbar-default">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- end top menu -->
 
-            <div class="menu row m0">
-                <ul class="nav navbar-nav navbar-right visible-sm">
-                    {{-- <li class="dropdown">
-                        <a href="{{base_url()}}assets/main/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon icon-Search"></i></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <form action="#" method="get" class="search-form">
-                                    <input type="search" class="form-control" placeholder="Type and Enter">
-                                </form>
-                            </li>
-                        </ul>
-                    </li> --}}
-                    <li class="dropdown">
-                       {{--  <a href="{{base_url()}}assets/main/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <i class="icon icon-ShoppingCart"></i></a> --}}
-                        {{-- <ul class="dropdown-menu cart-box ">
-                            <li class="cart-header">
-                                <h4>You have 2 Items In Your Cart.</h4>
-                            </li>
-                            <li class="cart-content">
-                                <div class="img-box">
-                                    <img src="{{base_url()}}assets/main/images/header/cart.jpg" alt="Awesome Image">
-                                </div>
-                                <div class="content">
-                                    <a href="{{base_url()}}assets/main/product.html"><h5>BATTERY SCREWDRIVER</h5></a>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <ul class="price">
-                                        <li><span class="or-price">$39.99</span></li>
-                                        <li><span class="sale-price">$24.5</span></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="cart-content">
-                                <div class="img-box">
-                                    <img src="{{base_url()}}assets/main/images/header/cart.jpg" alt="Awesome Image">
-                                </div>
-                                <div class="content">
-                                    <a href="{{base_url()}}assets/main/product.html"><h5>BATTERY SCREWDRIVER</h5></a>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <ul class="price">
-                                        <li><span class="or-price">$39.99</span></li>
-                                        <li><span class="sale-price">$24.5</span></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="cart-footer">
-                                <div class="total-price">
-                                    <h4>Total price: <span>$73.5</span></h4>
-                                </div>
-                                <div class="checkout-box submit">
-                                    <a class="" href="{{base_url()}}assets/main/#">Checkout <i class="fa fa-shopping-cart"></i></a>
-                                </div>
-                            </li>
-                        </ul> --}}
-                    </li>
-                </ul>
-                <div class="collapse navbar-collapse" id="main_nav">
-                    <ul class="nav navbar-nav">
-                        <li class="{{match($menu,'home','active')}}"><a href="{{base_url()}}">Home</a></li>
-                        <li class="{{match($menu,'profil','active')}}"><a href="{{base_url('main/profil')}}">Profil</a></li>
-                        <li class="{{match($menu,'artikel','active')}}"><a href="{{base_url('main/artikel')}}">Artikel</a></li>
-                        <li class="{{match($menu,'produk','active')}}"><a href="{{base_url('main/produk')}}">Produk</a></li>
-                        {{-- <li class="{{match($menu,'potensi','active')}}"><a href="{{base_url('main/potensi')}}">Potensi</a></li> --}}
-                        <li class="{{match($menu,'gallery','active')}}"><a href="{{base_url('main/gallery')}}">Gallery</a></li>
-                        {{-- <li class="dropdown">
-                            <a href="{{base_url()}}assets/main/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{base_url()}}assets/main/shop.html">Shop</a></li>
-                                <li><a href="{{base_url()}}assets/main/product.html">Product Details</a></li>
-                                <li><a href="{{base_url()}}assets/main/cart.html">Cart Page</a></li>
-                                <li><a href="{{base_url()}}assets/main/checkout.html">Checkout</a></li>
-                            </ul>
-                        </li> --}}
-                        <li class="{{match($menu,'contact','active')}}"><a href="{{base_url('main/contact')}}">Kontak</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
-                        {{-- <li class="dropdown">
-                            <a href="{{base_url()}}assets/main/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon icon-Search"></i></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <form action="#" method="get" class="search-form">
-                                        <input type="search" class="form-control" placeholder="Type and Enter">
-                                    </form>
-                                </li>
-                            </ul>
-                        </li> --}}
-                        {{-- <li class="dropdown">
-                            <a href="{{base_url()}}assets/main/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="icon icon-ShoppingCart"></i></a>
-                            <ul class="dropdown-menu cart-box ">
-                                <li class="cart-header">
-                                    <h4>You have 2 Items In Your Cart.</h4>
-                                </li>
-                                <li class="cart-content">
-                                    <div class="img-box">
-                                        <img src="{{base_url()}}assets/main/images/header/cart.jpg" alt="Awesome Image">
-                                    </div>
-                                    <div class="content">
-                                        <a href="{{base_url()}}assets/main/product.html"><h5>BATTERY SCREWDRIVER</h5></a>
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <ul class="price">
-                                            <li><span class="or-price">$39.99</span></li>
-                                            <li><span class="sale-price">$24.5</span></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="cart-content">
-                                    <div class="img-box">
-                                        <img src="{{base_url()}}assets/main/images/header/cart.jpg" alt="Awesome Image">
-                                    </div>
-                                    <div class="content">
-                                        <a href="{{base_url()}}assets/main/product.html"><h5>BATTERY SCREWDRIVER</h5></a>
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <ul class="price">
-                                            <li><span class="or-price">$39.99</span></li>
-                                            <li><span class="sale-price">$24.5</span></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="cart-footer">
-                                    <div class="total-price">
-                                        <h4>Total price: <span>$73.5</span></h4>
-                                    </div>
-                                    <div class="checkout-box submit">
-                                        <a class="" href="{{base_url()}}assets/main/#">Checkout <i class="fa fa-shopping-cart"></i></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li> --}}
-                    </ul>
-                </div>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </div>
-</header>
+     <!-- header (logo section) -->
+      <header class="header">
 
-
-<!--experiance-area-->
-@yield('content')
-
-<!--great-work-->
-{{-- <section class="emergency-contact">
-    <div class="left-side">
-        <div class="content">
-            <h3>If you have any wood work  need...</h3>
-            <h3>Simply call our 24 hour emergecny number.</h3>
-            <a href="{{base_url()}}assets/main/tel:+018655248503" class="phone"><img src="{{base_url()}}assets/main/images/great-work/phone.png" alt="">01865 524 8503</a>
-            <a href="{{base_url()}}assets/main/tel:+018655248503" class="email"><img src="{{base_url()}}assets/main/images/great-work/email.png" alt="">info@woodworshop.com</a>
-        </div>
-    </div>
-    <div class="right-side">
-        <img src="{{base_url()}}assets/main/images/great-work/right-img.jpg" alt="">
-    </div>
-</section> --}}
-
-<!--footer-->
-<footer class="row">
-    <div class="row m0 footer-top" style="background: black">
-        <div class="container">
-            <div class="row footer-sidebar">
-                <div class="widget about-us-widget col-sm-6 col-lg-3">
-                    <a href="{{base_url()}}" class="brand_logo">
-                        <img src="{{base_url()}}assets/images/website/config/logo/{{$config->logo}}" alt="logo image" style="max-height:  100px;">
-                    </a>
-                    <p>{!!$config->description!!}</p>
-                    <div class="social-icon row m0">
-                        <ul class="nav">
-                            <li><a href="{{$config->facebook}}"><i class="fa fa-facebook-square"></i></a></li>
-                            <li><a href="{{$config->instagram}}"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget widget-links col-sm-6 col-lg-3">
-                    <h4 class="widget_title">Menu</h4>
-                    <div class="widget-contact-list row m0">
-                        <ul>
-                            <li><a href="{{base_url()}}"><i class="fa fa-angle-right"></i>Home</a></li>
-                            <li><a href="{{base_url('main/profil')}}"><i class="fa fa-angle-right"></i>Profil</a></li>
-                            <li><a href="{{base_url('main/artikel')}}"><i class="fa fa-angle-right"></i>Artikel</a></li>
-                            <li><a href="{{base_url('main/produk')}}"><i class="fa fa-angle-right"></i>Produk</a></li>
-                            <li><a href="{{base_url('main/gallery')}}"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                            <li><a href="{{base_url('main/contact')}}"><i class="fa fa-angle-right"></i>Kontak</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget widget-contact  col-sm-6 col-lg-3">
-                    <h4 class="widget_title">Kontak</h4>
-                    <div class="widget-contact-list row m0">
-                       <ul>
-                            <li>
-                                <i class="fa fa-map-marker"></i>
-                                <div class="fleft location_address">
-                                    {{$config->address}}
-                                </div>
-
-                            </li>
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                <div class="fleft contact_no">
-                                    <a href="tel:{{$config->phone}}">{{$config->phone}}</a>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope-o"></i>
-                                <div class="fleft contact_mail">
-                                    <a href="mailto:{{$config->email}}">{{$config->email}}</a>
-                                </div>
-                            </li>
-                            {{-- <li>
-                                <i class="icon icon-WorldWide"></i>
-                                <div class="fleft service_time">
-                                    Mon - Sat : 9am to 6pm Sunday Close
-                                </div>
-                            </li> --}}
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget widget4 widget-form col-sm-6 col-lg-3">
-                    <h4 class="widget_title">Kirim Saran & Kritik</h4>
-                    <div class="widget-contact-list row m0">
-                        <form class="submet-form row m0" id="form-pesan" method="post">
-                            <input type="text" class="form-control" id="name" name="nama" placeholder="Nama">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                            <textarea class="form-control message" name="pesan" placeholder="Pesan"></textarea>
-                            <button class="submit" type="submit">Kirim Sekarang</button>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
-     <div class="row m0 footer-bottom">
-         <div class="container">
             <div class="row">
-               <div class="col-sm-8">
-                   Copyright &copy; <a href="{{base_url()}}">{{base_url()}}</a> {{date('Y')}}. <br class="visible-xs"> All rights reserved.
-               </div>
-               <div class="right col-sm-4">
-                   Created by: <a href="http://untag-sby.ac.id/">Universitas 17 Agustus 1945 Surabaya</a>
-               </div>
+                <div class="col-md-12">
+                    <div class="logo"><a href="index.html"><img id="logo" src="{{base_url()}}assets/template/images/logo.png" alt="logo"></a></div>
+                </div>
+            </div>
+
+      </header>
+     <!-- end header (logo section) -->
+
+     <!-- main menu -->
+     <nav class="navbar yamm navbar-default" id="main-navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="index.html">Default</a></li>
+                <li><a href="index-blog.html">Blog Layout</a></li>
+                <li><a href="index-grid.html">Grid Layout</a></li>
+                <li><a href="index-list.html">List Layout</a></li>
+              </ul>
+            </li>
+            <li><a href="index-grid.html">Fashion</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="404.html">404 page</a></li>
+                <li><a href="shortcodes.html">Shortcodes</a></li>
+                <li><a href="post-video.html">Post with Video</a></li>
+                <li><a href="about.html">Full Width Page</a></li>
+                <li><a href="contact.html">Contact Form</a></li>
+              </ul>
+            </li>
+
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-search"></i></a>
+                  <div class="dropdown-menu searchbox" role="menu">
+                    <form id="search" class="navbar-form search" role="search">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Type to search">
+                            <span class="input-group-btn"><button type="submit" class="btn btn-default btn-submit"><i class="fa fa-angle-right"></i></button></span>
+                        </div>
+                    </form>
+                  </div>
+            </li><!-- /.searchbox -->
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- end main menu -->
+
+    <!-- slider -->
+    <div class="slider">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 slider-left">
+                    <div class="slider-item">
+                    <figure class="effect-milo">
+                        <img src="{{base_url()}}assets/template/images/demo/1200x800-20.jpg" alt="img11"/>
+                        <figcaption>
+                            <h2>Wine Packaging Inspired by <span>the Simpsons and Piet Mondrian</span> Goes Against the Packaging Norms</h2>
+                            <p>Jodi started making these beautiful book sculptures when she got hooked from folding one of the pages of a used book from a second-hand book shop.</p>
+                            <a href="post.html">View more</a>
+                        </figcaption>
+                    </figure>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 slider-right">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <div class="slider-item rightside">
+                            <figure class="effect-milo">
+                                <img src="{{base_url()}}assets/template/images/demo/1200x800-14.jpg" alt="img11"/>
+                                <figcaption>
+                                    <h2>Make Stories Come Alive with <span>Jodi Harvey-Brown</span> Book Sculpture</h2>
+                                    <p>Maybe it's wine or maybe not but one thing is for sure, combining Homer and ...</p>
+                                    <a href="post.html">View more</a>
+                                </figcaption>
+                            </figure>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12">
+
+                            <div class="slider-item rightside">
+                            <figure class="effect-milo">
+                                <img src="{{base_url()}}assets/template/images/demo/1200x800-21.jpg" alt="img11"/>
+                                <figcaption>
+                                    <h2>You! Be Inspired! - The Enchanting Art of Meg Hunt</h2>
+                                    <p>Milo went to the woods. He took a fun ride and never came back.</p>
+                                    <a href="post.html">View more</a>
+                                </figcaption>
+                            </figure>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- end slider -->
+
+  <div class="content">
+
+  <div class="row">
+
+  <div class="col-md-8 main-content" >
+
+  <!-- Main (left side) -->
+
+  <section>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="blog-post">
+                <div class="blog-post-container">
+                   <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/1200x800-3.jpg" alt=""></a>
+                </div>
+
+                <div class="blog-post-body">
+
+                    <div class="post-meta"><span class="post-category"><a href="#">Fashion</a></span></div>
+                    <div class="divider"></div>
+                   <h2 class="title"><a href="post.html">Wonderful Pencil Drawings by Stefan Zsaitsits</a></h2>
+                    <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
+                   <p>
+                   Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil, flexitarian Truffaut synth art party deep v chillwave. Seitan High Life reprehenderit consectetur cupidatat kogi. Et leggings fanny pack, elit bespoke vinyl art party Pitchfork selfies master cleanse Kickstarter seitan retro.
+                   </p>
+                   <p>
+                      <div class="more-button"><a href="post.html"><span class="read-more-button">READ MORE</span></a></div>
+                      <div class="wcircle-menu-button">
+                        <div class="wcircle-icon">
+                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
+                        </div>
+                        <div class="wcircle-menu" style="display:none;">
+                          <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
+                          <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
+                          <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
+                          <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
+                          <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
+                          <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
+                          <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
+                        </div>
+                      </div>
+                   </p>
+                </div>
             </div>
         </div>
-     </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="blog-post">
+                <div class="blog-post-container">
+                   <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/1200x800-17.jpg" alt=""></a>
+                </div>
+
+                <div class="blog-post-body">
+                    <div class="post-meta"><span class="post-category"><a href="#">Computers</a></span></div>
+                    <div class="divider"></div>
+                   <h2 class="title"><a href="post.html">Creative Packaging: Excellent Designs of Paper Bags and Boxes</a></h2>
+                    <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
+                   <p>
+                   Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil, flexitarian Truffaut synth art party deep v chillwave. Seitan High Life reprehenderit consectetur cupidatat kogi. Et leggings fanny pack, elit bespoke vinyl art party Pitchfork selfies master cleanse Kickstarter seitan retro.
+                   </p>
+                   <p>
+                      <div class="more-button"><a href="post.html"><span class="read-more-button">READ MORE</span></a></div>
+                      <div class="wcircle-menu-button">
+                        <div class="wcircle-icon">
+                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
+                        </div>
+                        <div class="wcircle-menu" style="display:none;">
+                          <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
+                          <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
+                          <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
+                          <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
+                          <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
+                          <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
+                          <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
+                        </div>
+                      </div>
+                   </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="blog-post">
+                <div class="blog-post-container">
+                   <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/1200x800-14.jpg" alt=""></a>
+                </div>
+
+                <div class="blog-post-body">
+
+                   <div class="post-meta"><span class="post-category"><a href="#">Traveling</a></span></div>
+                   <div class="divider"></div>
+                   <h2 class="title"><a href="post.html">Whimsical Sculptures Created Out of Every-day Objects by Gilbert Legrand</a></h2>
+                    <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
+                   <p>
+                   Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil, flexitarian Truffaut synth art party deep v chillwave. Seitan High Life reprehenderit consectetur cupidatat kogi. Et leggings fanny pack, elit bespoke vinyl art party Pitchfork selfies master cleanse Kickstarter seitan retro.
+                   </p>
+                   <p>
+                      <div class="more-button"><a href="post.html"><span class="read-more-button">READ MORE</span></a></div>
+                      <div class="wcircle-menu-button">
+                        <div class="wcircle-icon">
+                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
+                        </div>
+                        <div class="wcircle-menu" style="display:none;">
+                          <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
+                          <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
+                          <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
+                          <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
+                          <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
+                          <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
+                          <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
+                        </div>
+                      </div>
+                   </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- video post -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="blog-post">
+
+                <div class="blog-post-container">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/8hP9D6kZseM?rel=0" allowfullscreen></iframe>
+                  </div>
+                </div>
+
+                <div class="blog-post-body">
+
+                   <div class="post-meta"><span class="post-category"><a href="#">Video</a></span></div>
+                   <div class="divider"></div>
+                    <h2 class="title"><a href="post.html">Youtube Video Embed</a></h2>
+                    <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
+                   <p>
+                   Maecenas euismod magna augue, et imperdiet nisl efficitur nec. Nunc non risus a diam tempor ornare. Suspendisse molestie nisi a euismod egestas. Integer tristique mauris in laoreet iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                   </p>
+                   <p>
+                      <div class="more-button"><a href="post.html"><span class="read-more-button">READ MORE</span></a></div>
+                      <div class="wcircle-menu-button">
+                        <div class="wcircle-icon">
+                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
+                        </div>
+                        <div class="wcircle-menu" style="display:none;">
+                          <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
+                          <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
+                          <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
+                          <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
+                          <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
+                          <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
+                          <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
+                        </div>
+                      </div>
+                   </p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- soundcloud post -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="blog-post">
+                <div class="blog-post-container">
+                    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/160960615&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                </div>
+
+                <div class="blog-post-body">
+                   <div class="post-meta"><span class="post-category"><a href="#">Music</a></span></div>
+                   <div class="divider"></div>
+                    <h2 class="title"><a href="post.html">SoundCloud Music Embed</a></h2>
+                    <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
+                   <p>
+                   Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.
+                   </p>
+                   <p>
+                      <div class="more-button"><a href="post.html"><span class="read-more-button">READ MORE</span></a></div>
+                      <div class="wcircle-menu-button">
+                        <div class="wcircle-icon">
+                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
+                        </div>
+                        <div class="wcircle-menu" style="display:none;">
+                          <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
+                          <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
+                          <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
+                          <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
+                          <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
+                          <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
+                          <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
+                        </div>
+                      </div>
+                   </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </section>
+
+  <!-- Grid Post style -->
+  <section>
+  <h4 class="main-heading"><span>Grid style</span></h4>
+
+   <div class="row">
+        <div class="col-md-6">
+
+            <!-- grid list item -->
+            <div class="grid-post">
+                <div class="grid-post-container">
+                   <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/1200x800-17.jpg" alt=""></a>
+                   <div class="post-cats"><a href="#">Beauty</a></div>
+                </div>
+
+                <div class="post-meta">
+                    <span class="post-meta-publ-date">February 23, 2015</span>
+                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
+                </div>
+
+                <div class="grid-post-body">
+                    <h3 class="title"><a href="portfolio-item.html">The Jaw-Droppingly Gorgeous Illustrations of Phil Noto</a></h3>
+                    <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
+                    <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
+                </div>
+            </div>
+            <!-- end grid list item -->
+
+        </div>
+        <div class="col-md-6">
+
+            <!-- grid list item -->
+            <div class="grid-post">
+                <div class="grid-post-container">
+                   <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/1200x800-11.jpg" alt=""></a>
+                   <div class="post-cats"><a href="#">Fashion</a></div>
+                </div>
+
+                <div class="post-meta">
+                    <span class="post-meta-publ-date">February 23, 2015</span>
+                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
+                </div>
+
+                <div class="grid-post-body">
+                    <h3 class="title"><a href="portfolio-item.html">Featured Artist: Interview with Diorama Artist Clemens Wirth</a></h3>
+                    <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
+                    <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
+                </div>
+            </div>
+            <!-- end grid list item -->
+
+        </div>
+    </div>
+
+   <div class="row">
+        <div class="col-md-6">
+
+            <!-- grid list item -->
+            <div class="grid-post">
+                <div class="grid-post-container">
+                   <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/1200x800-9.jpg" alt=""></a>
+                   <div class="post-cats"><a href="#">Computers</a></div>
+                </div>
+
+                <div class="post-meta">
+                    <span class="post-meta-publ-date">February 23, 2015</span>
+                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
+                </div>
+
+                <div class="grid-post-body">
+                    <h3 class="title"><a href="portfolio-item.html">5 Infographics You Should Definitely Check Out</a></h3>
+                    <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
+                    <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
+                </div>
+            </div>
+            <!-- end grid list item -->
+
+        </div>
+        <div class="col-md-6">
+
+            <!-- grid list item -->
+            <div class="grid-post">
+                <div class="grid-post-container">
+                   <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/1200x800-19.jpg" alt=""></a>
+                   <div class="post-cats"><a href="#">Transport</a></div>
+                </div>
+
+                <div class="post-meta">
+                    <span class="post-meta-publ-date">February 23, 2015</span>
+                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
+                </div>
+
+                <div class="grid-post-body">
+                    <h3 class="title"><a href="portfolio-item.html">Unbelievable Anamorphic Sculptures by Jonty Hurwitz</a></h3>
+                    <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
+                    <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
+                </div>
+            </div>
+            <!-- end grid list item -->
+
+        </div>
+    </div>
+
+  </section>
+  <!-- end Grid Post style -->
+
+  <!-- List Post style -->
+  <section>
+  <h4 class="main-heading"><span>List style</span></h4>
+
+    <!-- end list post item -->
+    <div class="list-post">
+        <div class="list-post-container">
+            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/article-298x298-1.jpg" alt=""></a>
+            <div class="post-cats"><a href="#">Transport</a></div>
+        </div>
+        <div class="list-post-body">
+            <h2><a href="post.html">Unbelievable Anamorphic Sculptures by Jonty Hurwitz</a></h2>
+
+                <div class="post-meta">
+                    <span class="post-meta-publ-date">February 23, 2015</span>
+                    <span class="post-meta-author">by <a href="#">Different Themes</a></span>
+                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
+                </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
+            <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
+        </div>
+    </div>
+    <!-- end list post item -->
+
+    <!-- end list post item -->
+    <div class="list-post">
+        <div class="list-post-container">
+            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/article-298x298-2.jpg" alt=""></a>
+            <div class="post-cats"><a href="#">Design</a></div>
+        </div>
+        <div class="list-post-body">
+            <h2><a href="post.html">Minimalist Monday: Classic Children's Stories Posters</a></h2>
+
+                <div class="post-meta">
+                    <span class="post-meta-publ-date">March 6, 2015</span>
+                    <span class="post-meta-author">by <a href="#">John Doe</a></span>
+                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">132</a></span>
+                </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
+            <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
+        </div>
+    </div>
+    <!-- end list post item -->
+
+  </section>
+  <!-- end List Post style -->
+
+ </div>
+
+ <div class="col-md-4">
+
+<!-- SIDE BAR -->
+<div id="sidebar">
+            <!-- sidebar-module-author -->
+            <div class="sidebar-module">
+
+
+                <div class="sidebar-content">
+
+                <h4 class="sidebar-heading"><span>About Us</span></h4>
+
+                    <a href="post.html"><img src="{{base_url()}}assets/template/images/about-me.jpg" alt="fashion" /></a>
+                    <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
+                    <a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a>
+                </div>
+            </div>
+            <!-- end sidebar-module-author -->
+
+             <!-- sidebar-module latest posts -->
+            <div class="sidebar-module">
+
+
+                <div class="sidebar-content">
+
+                <h4 class="sidebar-heading"><span>Latest</span></h4>
+
+                    <div class="widget-post" id="latest_posts">
+                        <div class="widget-post-circle">
+                            1
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">Watch Top Brands and Agencies Live-Tweet</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i>15. MARCH 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>15</span></div>
+                        </div>
+                    </div>
+
+                    <div class="widget-post" id="latest_posts">
+                        <div class="widget-post-circle">
+                            2
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">The Influences of Modern Minimalism</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
+                        </div>
+                    </div>
+
+                    <div class="widget-post" id="latest_posts">
+                        <div class="widget-post-circle">
+                            3
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">Coors Light Gets New Look, Miller Lite Targets Biculturals</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>3</span></div>
+                        </div>
+                    </div>
+
+                    <div class="widget-post" id="latest_posts">
+                        <div class="widget-post-circle">
+                            4
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">Facebook to Start Telling Brands Who's Talking About What Topics</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>5</span></div>
+                        </div>
+                    </div>
+
+                    <div class="widget-post" id="latest_posts">
+                        <div class="widget-post-circle">
+                            5
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">Notegraphy, Graphic Design Meet Note-Taking</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end sidebar-module -->
+
+            <!-- sidebar-module-instagram -->
+            <div class="sidebar-module">
+                <div class="sidebar-content">
+                <h4 class="sidebar-heading"><span>Instagram</span></h4>
+                    <ul class="widget-instagram">
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-1.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-2.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-3.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-4.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-5.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-6.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/article-298x298-3.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/article-298x298-2.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/article-298x298-1.jpg"  alt="Instagram Title" title="Instagram Title"/></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end sidebar-module-instagram  -->
+
+            <!-- sidebar-module -->
+            <div class="sidebar-module">
+                <div class="sidebar-content">
+                <h4 class="sidebar-heading"><span>Social</span></h4>
+                    <div class="widget-social">
+                        <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                        <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end sidebar-module -->
+
+            <!-- sidebar-module -->
+            <div class="sidebar-module">
+
+                <div class="sidebar-content">
+                <h4 class="sidebar-heading"><span>Fashion</span></h4>
+                    <div class="widget-post">
+                        <div class="widget-post-image">
+                            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/300x300-1.jpg" alt="fashion" /></a>
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">Watch Top Brands and Agencies Live-Tweet</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i>15. MARCH 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>11</span></div>
+                        </div>
+                    </div>
+
+                    <div class="widget-post">
+                        <div class="widget-post-image">
+                            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/300x300-5.jpg" alt="fashion" /></a>
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">The Influences of Modern Minimalism</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>6</span></div>
+                        </div>
+                    </div>
+
+                    <div class="widget-post">
+                        <div class="widget-post-image">
+                            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/300x300-7.jpg" alt="fashion" /></a>
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">Coors Light Gets New Look, Miller Lite Targets Biculturals</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
+                        </div>
+                    </div>
+
+                    <div class="widget-post">
+                        <div class="widget-post-image">
+                            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/300x300-6.jpg" alt="fashion" /></a>
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">Facebook to Start Telling Brands Who's Talking About What Topics</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>14</span></div>
+                        </div>
+                    </div>
+
+                    <div class="widget-post">
+                        <div class="widget-post-image">
+                            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/300x300-3.jpg" alt="fashion" /></a>
+                        </div>
+                        <div class="widget-post-entry">
+                            <h3 class="widget-post-title"><a href="post.html">Notegraphy, Graphic Design Meet Note-Taking</a></h3>
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end sidebar-module -->
+
+            <!-- sidebar-module latest comments -->
+            <div class="sidebar-module">
+
+                <div class="sidebar-content">
+                <h4 class="sidebar-heading"><span>Latest Comments</span></h4>
+                    <div class="lcomments-item">
+                        <a href="#">Mr. Wordpress</a> on <a href="post.html">Monotype Typecast, Stately Type and TDC Generator</a>
+                    </div>
+                    <div class="lcomments-item">
+                        <a href="#">Jeremy Clarkson</a> on <a href="post.html">Five centuries, but also the nation</a>
+                    </div>
+                    <div class="lcomments-item">
+                        <a href="#">John Doe</a> on <a href="post.html">12 Animated Magnets from Fictional Places</a>
+                    </div>
+                    <div class="lcomments-item">
+                        <a href="#">Claire</a> on <a href="post.html">Wonderful Pencil Drawings by Stefan</a>
+                    </div>
+                    <div class="lcomments-item">
+                        <a href="#">Sarah Lee</a> on <a href="post.html">Five centuries, but also the nation</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end sidebar-module latest comments -->
+
+             <!-- sidebar-module-tag-cloud -->
+            <div class="sidebar-module">
+
+                <div class="sidebar-content">
+                <h4 class="sidebar-heading"><span>Tag cloud</span></h4>
+                    <div class="tag-cloud">
+                        <a href="#">Fashion</a>
+                        <a href="#">Design</a>
+                        <a href="#">Architecture</a>
+                        <a href="#">Gadgets</a>
+                        <a href="#">Cars</a>
+                        <a href="#">Music</a>
+                        <a href="#">Recipe</a>
+                        <a href="#">Lifestyle</a>
+                        <a href="#">Travel</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end sidebar-module-tag-cloud -->
+
+            <!-- sidebar-module-banner -->
+            <div class="sidebar-module">
+
+
+                <div class="sidebar-content">
+                <h4 class="sidebar-heading"><span>Advertisement</span></h4>
+                    <div class="sidebar-content banner-widget">
+                        <a href="#"><img src="{{base_url()}}assets/template/images/banner-300x250.png" alt="advertisement" width="300" height="250" /></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end sidebar-module-banner -->
+
+  <!-- end SIDE BAR -->
+  </div>
+  </div>
+
+  </div><!-- end row -->
+
+  </div><!-- end content -->
+
+
+  <p id="back-top">
+        <a href="#top"><i class="fa fa-angle-up"></i></a>
+  </p>
+
+  <!-- instagram widget in main page -->
+  <h4 class="main-heading"><span>Instagram</span></h4>
+  <div class="widget-insta">
+    <div id="insta-owl" class="owl-carousel owl-theme">
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-2.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-1.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-3.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-6.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-4.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-5.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-3.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-6.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-5.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-3.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-2.jpg" alt=""></a></div>
+      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-1.jpg" alt=""></a></div>
+    </div>
+  </div>
+  <!-- end instagram widget in main page -->
+
+  </div> <!-- container div -->
+
+</div> <!-- boxed div -->
+
+  <footer class="footer">
+
+      <div class="footer-dark">
+          <div class="footer-socials">
+              <a href="https://www.twitter.com/d" class="social"><i class="fa fa-twitter"></i> Twitter</a>
+              <a href="http://www.bloglovin.com//d" class="social"><i class="fa fa-plus"></i> Bloglovin</a>
+              <a href="https://www.facebook.com/d" class="social"><i class="fa fa-facebook-square"></i> Facebook</a>
+              <a href="https://dribbble.com/d" class="social dribbble" rel="publisher"><i class="fa fa-dribbble"></i> Dribbble</a>
+              <a href="https://plus.google.com/+d" class="social google"><i class="fa fa-google-plus-square"></i> Google+</a>
+          </div>
+
+          <div class="footer-menu">
+              <a href="#" class="social">About Us</a>
+              <a href="#" class="social">Archives</a>
+              <a href="#" class="social">Advertise</a>
+              <a href="#" class="social">Contact Us</a>
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <i class="fa fa-copyright"></i> Copyright 2015. All rights reserved.<br />
+          Theme made by <a href="http://themeforest.net/user/different-themes/portfolio?ref=different-themes">Different Themes</a>
+      </div>
+
 </footer>
 
-<script src="{{base_url()}}assets/main/js/jquery-2.2.0.min.js"></script>
-<script src="{{base_url()}}assets/main/js/bootstrap.min.js"></script>
-<!--RS-->
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/jquery.themepunch.tools.min.js"></script> <!-- Revolution Slider Tools -->
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> <!-- Revolution Slider -->
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="{{base_url()}}assets/template/js/jquery-latest.min.js"></script>
+<script type="text/javascript" src="{{base_url()}}assets/template/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{base_url()}}assets/template/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="{{base_url()}}assets/template/js/demo-settings.js"></script>
+<script type="text/javascript" src="{{base_url()}}assets/template/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="{{base_url()}}assets/template/js/jquery.scrolline.js"></script>
+<script type="text/javascript" src="{{base_url()}}assets/template/js/jquery.WCircleMenu-min.js"></script>
+<script type="text/javascript" src="{{base_url()}}assets/template/js/ThemeScripts.js"></script>
 
-<script src="{{base_url()}}assets/main/vendors/isotope/isotope.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/owlcarousel/owl.carousel.min.js"></script>
-<script src="{{base_url()}}assets/main/vendors/magnific/jquery.magnific-popup.min.js"></script>
-<script src="{{base_url()}}assets/main/js/theme.js"></script>
-@yield('js')
-<script type="text/javascript" src="{{base_url()}}assets/js/cak-js.js"></script>
-<script type="text/javascript" src="{{base_url()}}assets/js/sweetalert.min.js"></script>
-<script type="text/javascript" src="{{base_url()}}assets/js/plugins/loaders/blockui.min.js"></script>
-<script type="text/javascript">
-    $("#form-pesan").submit(function(e){
-            e.preventDefault();
-            $.ajax({
-            url:    "{{base_url('main/pesan')}}",
-            type:   "POST",
-            data: $("#form-pesan").serialize(),
-            beforeSend: function(){
-            blockMessage($('html'),'Please Wait Processing Data','#fff');
-            }
-            })
-            .done(function(data){
-            $('html').unblock();
-            sweetAlert({
-            title:  ((data.auth==false) ? "Opps!" : 'Pesan Success !'),
-            text:   ((data.auth==false) ? data.msg : 'Pesan anda Telah Dikirim'),
-            type:   ((data.auth==false) ? "error" : "success"),
-            },
-            function(){
-            if(data.auth!=false){
-                // redirect("{{base_url('main/contact')}}");
-                $('#form-pesan').trigger("reset");
-            return;
-            }}
-            );
-
-            })
-            .fail(function() {
-            $('html').unblock();
-            sweetAlert({
-            title:  "Opss!",
-            text:   "Something Wrong!, Try Again later",
-            type:   "error",
-            },
-            function(){
-            // grecaptcha.reset();
-            });
-            })
-            })
-</script>
-</body>
+  </body>
 </html>
