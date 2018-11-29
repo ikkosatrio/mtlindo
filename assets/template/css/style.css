@@ -1151,7 +1151,7 @@ blockquote cite:before {
     display: none;
 }
 
-.comment-form input[type="text"],
+.comment-form input[type="text"],input[type="file"],input[type="email"],input[type="password"],
 .comment-form textarea {
     text-transform: none;
     font-family: 'Raleway', serif;

@@ -19,6 +19,7 @@ class Main extends CI_Controller {
 		$this->load->model('m_pejabat');
 		$this->load->model('m_slider');
 		$this->load->model('m_pesan');
+		$this->load->model('m_member');
 
 		$this->data['config'] 			= $this->m_config->ambil('config',1)->row();
 		$this->data['profil'] 			= $this->m_profil->ambil('profil',1)->row();
@@ -38,6 +39,27 @@ class Main extends CI_Controller {
 		$data['novel']       = $this->m_produk->tampil_dataBaru('novel')->result();
 		$data['menu']        = "home";
 		echo $this->blade->nggambar('main.home',$data);
+	}
+
+	function regis()
+	{
+		$data['menu']        = "regis";
+		echo $this->blade->nggambar('main.regis',$data);
+	}
+
+	function cek_email()
+	{
+		$email = $this->input->post('email');
+		$where = array('email' => $email);
+		$cek = $this->m_member->detail($where,'member')->num_rows();
+		if ($cek != 0) {
+			echo"is registered, please change your email";
+		}
+	}
+
+	function addmember()
+	{
+		echo'assem';
 	}
 
 	public function profil()
