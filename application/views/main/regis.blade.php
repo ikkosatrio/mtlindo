@@ -1,6 +1,6 @@
 @extends('main.template')
 @section('title')
-Home -> Login
+Home -> Regis
 @endsection
 @section('content')
 
@@ -21,6 +21,22 @@ $(document).ready(function(){
   })
 });
 </script>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="content">
 
     <div class="row">
@@ -32,7 +48,12 @@ $(document).ready(function(){
           <div class="post-entry">
 
           <h2>Form Registration</h2><br>
-          <form name="form" id="form" action="{{base_url('main/addmember')}}" method="post" class="comment-form">
+         <!-- Button trigger modal -->
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+          </button> -->
+        <!-- Modal -->
+          <form name="form" id="form" action="{{base_url('main/addmember')}}" method="post" enctype="multipart/form-data" class="comment-form">
             <div class="row">
             <div id="alert">
               <!-- <div class="col-md-12">

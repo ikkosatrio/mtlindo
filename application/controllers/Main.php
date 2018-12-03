@@ -20,6 +20,8 @@ class Main extends CI_Controller {
 		$this->load->model('m_slider');
 		$this->load->model('m_pesan');
 		$this->load->model('m_member');
+		$this->load->model('m_login');
+		$this->load->model('m_novel');
 
 		$this->data['config'] 			= $this->m_config->ambil('config',1)->row();
 		$this->data['profil'] 			= $this->m_profil->ambil('profil',1)->row();
@@ -43,7 +45,7 @@ class Main extends CI_Controller {
 
 	function regis()
 	{
-		$data['menu']        = "regis";
+		$data['menu'] = "regis";
 		echo $this->blade->nggambar('main.regis',$data);
 	}
 
@@ -53,13 +55,97 @@ class Main extends CI_Controller {
 		$where = array('email' => $email);
 		$cek = $this->m_member->detail($where,'member')->num_rows();
 		if ($cek != 0) {
-			echo"is registered, please change your email";
+			echo"is registered, please change your email...!";
 		}
 	}
 
 	function addmember()
 	{
-		echo'assem';
+		$email = $this->input->post('email');
+		$name  = $this->input->post('name');
+		$pass  = $this->input->post('pass');
+		$photo = $this->input->post('photo');
+
+		mkdir('./assets/images/member/'.$email, 0777, TRUE);
+		$config['upload_path']   = './assets/images/member/'.$email;
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']      = '10000';
+		$config['max_width']     = '5000';
+		$config['max_height']    = '5000';
+		
+		$this->load->library('upload', $config);
+		
+		if ( ! $this->upload->do_upload('photo')){
+			$error = array('error' => $this->upload->display_errors());
+			var_dump($error);
+		}
+		else{
+			$data = array('upload_data' => $this->upload->data());
+			// echo "success";
+			$status = 'registered';
+		}
+
+		$photo = $this->upload->data();
+
+		$data = array(
+			'email'    => $email,
+			'nama'     => $name,
+			'password' => md5($pass),
+			'photo'    => $photo['file_name']
+		);
+
+		$this->m_member->input_data($data,'member');
+
+		redirect('main/auth/'.$status,'refresh');
+	}
+
+	function auth($status)
+	{
+		if ($status=='registered') {
+			$data['menu'] = "registered";
+			echo $this->blade->nggambar('main.login',$data);
+		}else{
+			$data['menu'] = "login";
+			echo $this->blade->nggambar('main.login',$data);
+		}
+	}
+
+	public function authentication(){
+
+		$where 	= array(
+			'email'    => $this->input->post('email'),
+			'password' => md5($this->input->post('pass')),
+		);
+
+		$cek = $this->m_login->cek_login("member",$where)->row();
+
+		if($cek!=null){
+			$data_session = array(
+				'id'        => $cek->id_member,
+				'email'     => $cek->email,
+				'nama'      => $cek->nama,
+				'photo'     => $cek->photo,
+				'main_auth' => TRUE
+			);
+			echo"success, welcome";
+			$this->session->set_userdata($data_session);
+			redirect('main','refresh');
+		}else{
+			echo"login gagal";
+		}
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('main/auth/login');
+	}
+
+	function detail_novel($id)
+	{
+		$where = array('id_novel' => $id);
+		$data['novel'] = $this->m_novel->detail($where,'novel')->result();
+		$data['menu']  = "detail_novel";
+		echo $this->blade->nggambar('main.detailnovel',$data);
 	}
 
 	public function profil()

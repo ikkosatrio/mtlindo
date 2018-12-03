@@ -37,20 +37,18 @@
     <div class="top-bar">
 
         <span class="top-bar-menu">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="advertisement.html">Advertisement</a>
-            <a href="contact.html">login</a>
+          <?php if (ucwords($ctrl->session->userdata('main_auth'))==TRUE){ ?>
+          <label>Welcome, {{ucwords($ctrl->session->userdata('nama'))}}</label>
+          <?php }else{ ?>
+          <a href="{{base_url('main/auth/login')}}">login</a>
+          <a href="{{base_url('main/regis')}}">Register</a>
+          <?php } ?>
         </span>
 
         <span class="top-bar-socials">
-            <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-            <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-            <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
-            <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
-            <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
+          <?php if (ucwords($ctrl->session->userdata('main_auth'))==TRUE){ ?>
+            <a href="{{base_url('main/logout')}}">Log out</a>
+          <?php } ?>
         </span>
 
     </div>
@@ -61,7 +59,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="logo"><a href="index.html"><img id="logo" src="{{base_url()}}assets/template/images/logo.png" alt="logo"></a></div>
+                    <div class="logo"><a href="{{base_url()}}"><img id="logo" src="{{base_url()}}assets/template/images/logo.png" alt="logo"></a></div>
                 </div>
             </div>
 
