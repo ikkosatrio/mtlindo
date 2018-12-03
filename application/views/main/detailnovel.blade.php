@@ -61,196 +61,218 @@ Home -> Novel
 
   <section>
 
-    @foreach ($novel as $n)
     <div class="row">
-        <div class="col-sm-12">
-            <div class="blog-post">
-                <div class="blog-post-container">
-                    <a href="{{base_url('main/detail_novel/').$n->id_novel}}">
-                    <img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; max-height: 500px;" alt="">
-                    </a>
-                </div>
+        <div class="col-md-12">
 
-                <div class="blog-post-body">
+        <!-- post -->
+        @foreach ($novel as $n)
+        <article class="blog-post">
+        <div class="blog-post-container">
+          <img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; max-height: 500px;" alt="">
+        </div>
+
+        <div class="post-entry">
 
                     <div class="post-meta"><span class="post-category"><a href="#">kategori {{$n->id_kategori}}</a></span></div>
                     <div class="divider"></div>
-                   <h2 class="title"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">{{$n->judul}}</a></h2>
-                    <div class="post-meta">Posted on <span class="post-time">{{date("d-M-Y", strtotime($n->created_at))}}</span> by <span class="post-author"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">Paijo</a></span></div>
-                   <p align="justify">
-                   {{$n->deskripsi}}
-                   </p>
-                   <p>
-                      <div class="more-button"><a href="{{base_url('main/detail_novel/').$n->id_novel}}"><span class="read-more-button">READ MORE</span></a></div>
-                      <div class="wcircle-menu-button">
-                        <div class="wcircle-icon">
-                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
-                        </div>
-                        <div class="wcircle-menu" style="display:none;">
-                          <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
-                          <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
-                          <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
-                          <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
-                          <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
-                          <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
-                          <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
-                        </div>
-                      </div>
-                   </p>
+            <h1><a href="portfolio-item.html">{{$n->judul}}</a></h1>
+                    <div class="post-meta">Posted on <span class="post-time">{{date("d-M-Y", strtotime($n->created_at))}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
+                <p>{{$n->deskripsi}}</p>
+                <div class="tag-cloud">
+                        <a href="#">Fashion</a>
+                        <a href="#">Design</a>
+                        <a href="#">Architecture</a>
+                        <a href="#">Gadgets</a>
+                        <a href="#">Cars</a>
+                        <a href="#">Computers</a>
                 </div>
-            </div>
+
         </div>
-    </div>
-    @endforeach
+      </article>
+      @endforeach
+            <!-- post end -->
 
-    <!-- video post -->
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="blog-post">
+            <!-- author -->
+            <section>
+            <h4 class="main-heading"><span>Author</span></h4>
 
-                <div class="blog-post-container">
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/8hP9D6kZseM?rel=0" allowfullscreen></iframe>
+              <div class="author">
+                <div class="author-image">
+                  <img src="images/demo/300x300-4.jpg" alt="">
+                </div>
+                <div class="author-text-body">
+                  <h3><a href="index-list.html">Different Themes</a> <span>Editor in chief</span></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
+                      <div class="author-social">
+                          <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                          <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                          <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                          <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                          <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                          <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
+                          <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
+                      </div>
+                </div>
+              </div>
+
+            </section>
+
+            <!-- related -->
+            <section>
+            <h4 class="main-heading"><span>Related</span></h4>
+
+             <div class="row">
+                  <div class="col-md-4">
+
+                  <div class="related-article">
+                    <div class="related-article-container">
+                      <img src="images/demo/600x400-4.jpg" alt="">
+                    </div>
+                    <div class="related-article-body">
+                      <h3 class="title"><a href="portfolio-item.html">Wonderful Pencil Drawings by Stefan Zsaitsits</a></h3>
+                    </div>
                   </div>
+
+                  </div>
+                  <div class="col-md-4">
+
+                  <div class="related-article">
+                    <div class="related-article-container">
+                      <img src="images/demo/600x400-2.jpg" alt="">
+                    </div>
+                    <div class="related-article-body">
+                      <h3 class="title"><a href="portfolio-item.html">Lovely Flower Petal Art by Zhi Wei</a></h3>
+                    </div>
+                  </div>
+
+                  </div>
+                  <div class="col-md-4">
+
+                  <div class="related-article">
+                    <div class="related-article-container">
+                      <img src="images/demo/600x400-3.jpg" alt="">
+                    </div>
+                    <div class="related-article-body">
+                      <h3 class="title"><a href="portfolio-item.html">5 Infographics You Should Definitely Check Out</a></h3>
+                    </div>
+                  </div>
+
+                  </div>
+              </div>
+            </section>
+            <!-- end related -->
+
+        <!--== Comments ==-->
+        <h4 class="main-heading"><span>Comments</span></h4>
+        <div class="comments">
+          <ul class="comment-list">
+            <li>
+              <div class="comment">
+                <div class="comment-author">
+                  <img src="images/demo/avatar.png" alt="Author">
+                  <a href="#" rel="external nofollow" class="comment-author-name">James</a>
+                  <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
                 </div>
-
-                <div class="blog-post-body">
-
-                   <div class="post-meta"><span class="post-category"><a href="#">Video</a></span></div>
-                   <div class="divider"></div>
-                    <h2 class="title"><a href="post.html">Youtube Video Embed</a></h2>
-                    <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
-                   <p>
-                   Maecenas euismod magna augue, et imperdiet nisl efficitur nec. Nunc non risus a diam tempor ornare. Suspendisse molestie nisi a euismod egestas. Integer tristique mauris in laoreet iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                   </p>
-                   <p>
-                      <div class="more-button"><a href="post.html"><span class="read-more-button">READ MORE</span></a></div>
-                      <div class="wcircle-menu-button">
-                        <div class="wcircle-icon">
-                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
-                        </div>
-                        <div class="wcircle-menu" style="display:none;">
-                          <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
-                          <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
-                          <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
-                          <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
-                          <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
-                          <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
-                          <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
-                        </div>
-                      </div>
-                   </p>
+                <div class="comment-body">
+                  <p>Maecenas lobortis ante leo, ac rhoncus nisl elementum et. Proin quis ligula pulvinar, commodo enim eget, lacinia dolor. Nulla lacinia viverra nulla a interdum.</p>
+                  <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
                 </div>
-
-
-            </div>
+              </div>
+              <ul class="children">
+                <li>
+                  <div class="comment">
+                    <div class="comment-author">
+                      <img src="images/demo/avatar.png" alt="Author">
+                      <a href="#" rel="external nofollow" class="comment-author-name">Amanda</a>
+                      <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
+                    </div>
+                    <div class="comment-body">
+                      <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.</p>
+                      <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="comment">
+                    <div class="comment-author">
+                      <img src="images/demo/avatar.png" alt="Author">
+                      <a href="#" rel="external nofollow" class="comment-author-name">Sarah</a>
+                      <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
+                    </div>
+                    <div class="comment-body">
+                      <p>Nulla fringilla massa a eros varius laoreet. Cras leo odio, ultrices et aliquam quis, convallis eu turpis.</p>
+                      <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="comment">
+                <div class="comment-author">
+                  <img src="images/demo/avatar.png" alt="Author">
+                  <a href="#" rel="external nofollow" class="comment-author-name">Amanda</a>
+                  <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
+                </div>
+                <div class="comment-body">
+                  <p>Pellentesque suscipit cursus nibh. Aenean est ipsum, varius ac vulputate sed, auctor sed est. Morbi sed vulputate nulla. Praesent luctus felis augue, et porta massa luctus vitae. Ut eleifend ornare purus, non gravida elit ultrices vel.</p>
+                  <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="comment">
+                <div class="comment-author">
+                  <img src="images/demo/avatar.png" alt="Author">
+                  <a href="#" rel="external nofollow" class="comment-author-name">Casper</a>
+                  <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
+                </div>
+                <div class="comment-body">
+                  <p>Cras leo odio, ultrices et aliquam quis, convallis eu turpis. Proin nec nisl eget tellus tempus maximus.</p>
+                  <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-    </div>
 
-    <!-- soundcloud post -->
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="blog-post">
-                <div class="blog-post-container">
-                    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/160960615&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-                </div>
+        <!--== Post Reply ==-->
+        <h4 class="main-heading"><span>Post Reply</span></h4>
 
-                <div class="blog-post-body">
-                   <div class="post-meta"><span class="post-category"><a href="#">Music</a></span></div>
-                   <div class="divider"></div>
-                    <h2 class="title"><a href="post.html">SoundCloud Music Embed</a></h2>
-                    <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
-                   <p>
-                   Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.
-                   </p>
-                   <p>
-                      <div class="more-button"><a href="post.html"><span class="read-more-button">READ MORE</span></a></div>
-                      <div class="wcircle-menu-button">
-                        <div class="wcircle-icon">
-                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
-                        </div>
-                        <div class="wcircle-menu" style="display:none;">
-                          <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
-                          <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
-                          <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
-                          <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
-                          <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
-                          <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
-                          <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
-                        </div>
-                      </div>
-                   </p>
-                </div>
-            </div>
-        </div>
-    </div>
+              <div class="comment-form-body">
+              <div class="row">
+              <form class="comment-form" action="http://example.org/">
+                  <div class="col-md-6">
 
-  </section>
+                      <label for="author">Your name</label>
+                      <input id="author" type="text" placeholder="Your name" name="author">
 
-  <!-- Grid Post style -->
-  <section>
-  <h4 class="main-heading"><span>Grid style</span></h4>
+                  </div>
 
-   <div class="row">
-    @foreach ($novel as $n)
-        <div class="col-md-6">
+                  <div class="col-md-6">
+                      <label for="email">Email</label>
+                      <input id="email" type="text" placeholder="Email" name="author">
+                  </div>
 
-            <!-- grid list item -->
-            <div class="grid-post">
-                <div class="grid-post-container">
-                   <a href="post.html"><img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; max-height: 360px;" alt=""></a>
-                   <div class="post-cats"><a href="#">Beauty</a></div>
-                </div>
+                  <div class="col-md-12">
+                      <label for="email">Subject</label>
+                      <input id="email" type="text" placeholder="Subject" name="subject">
+                  </div>
 
-                <div class="post-meta">
-                    <span class="post-meta-publ-date">February 23, 2015</span>
-                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
-                </div>
+                  <div class="col-md-12">
+                      <label for="comment">Comment</label>
+                      <textarea name="comment" id="comment" cols="35" rows="5"></textarea>
+                  </div>
 
-                <div class="grid-post-body">
-                    <h3 class="title"><a href="portfolio-item.html">The Jaw-Droppingly Gorgeous Illustrations of Phil Noto</a></h3>
-                    <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
-                    <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
-                </div>
-            </div>
-            <!-- end grid list item -->
+                  <div class="col-md-12"><input type="submit" value="Post Comment" class="submit-button" /></div>
+              </form>
+              </div>
+              </div>
 
-        </div>
-    @endforeach
-    </div>
+        </div><!-- end col-md-12 -->
+    </div><!-- end row -->
 
-  </section>
-  <!-- end Grid Post style -->
-
-  <!-- List Post style -->
-  <section>
-  <h4 class="main-heading"><span>List style</span></h4>
-
-    <!-- end list post item -->
-    @foreach ($novel as $n)
-    <div class="list-post">
-        <div class="list-post-container">
-            <a href="post.html"><img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; height: auto;" alt=""></a>
-            <div class="post-cats"><a href="#">Transport</a></div>
-        </div>
-        <div class="list-post-body">
-            <h2><a href="post.html">Unbelievable Anamorphic Sculptures by Jonty Hurwitz</a></h2>
-
-                <div class="post-meta">
-                    <span class="post-meta-publ-date">February 23, 2015</span>
-                    <span class="post-meta-author">by <a href="#">Different Themes</a></span>
-                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
-                </div>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
-            <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
-        </div>
-    </div>
-    @endforeach
-    <!-- end list post item -->
-
-  </section>
-  <!-- end List Post style -->
+   </section>
 
  </div>
 

@@ -1151,12 +1151,12 @@ blockquote cite:before {
     display: none;
 }
 
-.comment-form input[type="text"],
+.comment-form input[type="text"],input[type="file"],input[type="email"],input[type="password"],
 .comment-form textarea {
     text-transform: none;
     font-family: 'Raleway', serif;
-    color: #ABB7DB;
-    border: 1px solid #ADADAD;
+    color: #5b57dc;
+    border: 1px solid #303a6b;
     width: 100%;
     max-width: 100%;
     margin-bottom: 20px;
