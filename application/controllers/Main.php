@@ -68,7 +68,7 @@ class Main extends CI_Controller {
 
 		mkdir('./assets/images/member/'.$email, 0777, TRUE);
 		$config['upload_path']   = './assets/images/member/'.$email;
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'jpg|png|jpeg';
 		$config['max_size']      = '10000';
 		$config['max_width']     = '5000';
 		$config['max_height']    = '5000';
