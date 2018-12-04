@@ -1149,6 +1149,14 @@ class Superuser extends CI_Controller {
 				return;
 			}
 		}
+
+        else if ($url=="export" && $id!=null) {
+            $data['type']    = "update";
+            $where           = array('id_chapter' => $id);
+            $chapter = $this->m_chapter->detail($where,'chapter')->row();
+
+		    $this->saveWord("Chapter".$id,$chapter->judul,$chapter->content);
+        }
 		else if ($url=="update" && $id!=null) {
 			$data['type']    = "update";
 			$where           = array('id_chapter' => $id);
@@ -1521,4 +1529,57 @@ class Superuser extends CI_Controller {
 			return false;
 		}
 	}
+
+	private function saveWord($filename,$title,$content){
+//        require_once 'bootstrap.php';
+
+        // Creating the new document...
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+
+        /* Note: any element you append to a document must reside inside of a Section. */
+
+        // Adding an empty Section to the document...
+        $section = $phpWord->addSection();
+        // Adding Text element to the Section having font styled by default...
+        $section->addText($title);
+
+        /*
+         * Note: it's possible to customize font style of the Text element you add in three ways:
+         * - inline;
+         * - using named font style (new font style object will be implicitly created);
+         * - using explicitly created font style object.
+         */
+
+        // Adding Text element with font customized inline...
+        $section->addText(
+            $content,
+            array('name' => 'Tahoma', 'size' => 10)
+        );
+
+        // Adding Text element with font customized using named font style...
+        $fontStyleName = 'oneUserDefinedStyle';
+        $phpWord->addFontStyle(
+            $fontStyleName,
+            array('name' => 'Tahoma', 'size' => 10, 'color' => '1B2232', 'bold' => true)
+        );
+
+
+        // Saving the document as OOXML file...
+
+        $filename = $filename.'.docx';
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+        $objWriter->save($filename);
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($filename));
+        flush();
+        readfile($filename);
+        unlink($filename);
+    }
 }
