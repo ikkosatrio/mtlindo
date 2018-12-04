@@ -76,6 +76,11 @@ Dashboard - Administrasi
 													</a>
 												</li>
 												<li>
+													<a href="{{base_url('superuser/chapter/export/'.$result->id_chapter)}}">
+														<i class="fa fa-edit"></i> Export Excel
+													</a>
+												</li>
+												<li>
 													<a href="{{base_url('superuser/glossary/?id_chapter='.$result->id_chapter)}}">
 														<i class="fa fa-edit"></i> Glossary
 													</a>
