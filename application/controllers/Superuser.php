@@ -1150,6 +1150,28 @@ class Superuser extends CI_Controller {
 			}
 		}
 
+        else if ($url=="import") {
+		    $name = $_FILES["file"]["name"];
+		    $hasil = $this->uploadFile('file',$_FILES["file"]['name']);
+
+
+//		    var_dump($hasil);
+
+		    $content = $this->readWord($hasil['path']);
+		    $content = $content[0];
+		    if($content){
+                echo json_encode(array(
+		            "Code" => "SUCCESS",
+                    "Content" => $content,
+                ));
+                return;
+            }
+            echo json_encode(array(
+                "Code" => "ERRO",
+                "Content" => "DUNNO",
+            ));
+		    return ;
+        }
         else if ($url=="export" && $id!=null) {
             $data['type']    = "update";
             $where           = array('id_chapter' => $id);
@@ -1530,6 +1552,17 @@ class Superuser extends CI_Controller {
 		}
 	}
 
+    private function readWord($source = null){
+//        $type = array_search("Word2007", CRM_Core_SelectValues::documentApplicationType());
+//        $fileType = $type == 'docx' ? 'Word2007' : 'ODText';
+        $phpWord = \PhpOffice\PhpWord\IOFactory::load($source, "Word2007");
+        $phpWordHTML = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
+        // return the html content for tokenreplacment and eventually used for document download
+        return array($phpWordHTML->getWriterPart('Body')->write(), "Word2007");
+    }
+
+
+
 	private function saveWord($filename,$title,$content){
 //        require_once 'bootstrap.php';
 
@@ -1581,5 +1614,29 @@ class Superuser extends CI_Controller {
         flush();
         readfile($filename);
         unlink($filename);
+    }
+
+    function uploadFile($uploadFile,$fileName='')
+    {
+        $resultArr = array();
+        $config['max_size'] = '1024000';
+        $config['upload_path'] = './assets/import';
+        $config['allowed_types'] = 'docx|doc';
+        if($fileName != "")
+            $config['file_name'] = $fileName;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        if(!$this->upload->do_upload($uploadFile))
+        {
+            $resultArr['success'] = false;
+            $resultArr['error'] = $this->upload->display_errors();
+        }   else    {
+            $resArr = $this->upload->data();
+            $resultArr['success'] = true;
+            $resultArr['path'] = "assets/import/".$resArr['file_name'];
+        }
+        return $resultArr;
     }
 }
