@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2018 at 04:14 PM
+-- Generation Time: Dec 08, 2018 at 04:36 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -235,6 +235,28 @@ INSERT INTO `kategori` (`id_kategori`, `nama`, `deskripsi_kat`, `created_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `komentar`
+--
+
+CREATE TABLE `komentar` (
+  `id_komen` int(11) NOT NULL,
+  `id_member` int(11) DEFAULT NULL,
+  `id_novel` int(11) DEFAULT NULL,
+  `komentar` text,
+  `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `komentar`
+--
+
+INSERT INTO `komentar` (`id_komen`, `id_member`, `id_novel`, `komentar`, `created`) VALUES
+(1, 5, 3, 'testing comment', '2018-12-06 07:29:34'),
+(2, 2, 3, 'its good....', '2018-12-06 13:29:12');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `member`
 --
 
@@ -249,6 +271,18 @@ CREATE TABLE `member` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`id_member`, `email`, `nama`, `password`, `code_verification`, `photo`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'john@gmail.com', 'John Doe', '25d55ad283aa400af464c76d713c07ad', NULL, '4.jpg', '2018-11-29 15:31:09', '2018-11-29 15:31:09', NULL),
+(2, 'sabyan@gmail.com', 'Nissa Sabyan', '25d55ad283aa400af464c76d713c07ad', NULL, '3.jpg', '2018-11-29 15:38:44', '2018-11-29 15:38:44', NULL),
+(3, 'paijo@gmail.com', 'Paijo Joyo', '25d55ad283aa400af464c76d713c07ad', NULL, '5.jpg', '2018-11-29 15:50:59', '2018-11-29 15:50:59', NULL),
+(4, 'aisyah@gmail.com', 'Aisyah', '25d55ad283aa400af464c76d713c07ad', NULL, '2.jpg', '2018-11-29 15:55:38', '2018-11-29 15:55:38', NULL),
+(5, 'joni@gmail.com', 'joni', '25d55ad283aa400af464c76d713c07ad', NULL, '2.jpg', '2018-11-29 15:58:27', '2018-11-29 15:58:27', NULL),
+(6, 'paimen@gmail.com', 'Paimen', '25d55ad283aa400af464c76d713c07ad', NULL, '8.jpg', '2018-11-29 16:00:26', '2018-11-29 16:00:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -466,6 +500,12 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`) USING BTREE;
 
 --
+-- Indexes for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD KEY `id_komen` (`id_komen`);
+
+--
 -- Indexes for table `member`
 --
 ALTER TABLE `member`
@@ -563,10 +603,15 @@ ALTER TABLE `header`
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id_komen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `novel`
 --

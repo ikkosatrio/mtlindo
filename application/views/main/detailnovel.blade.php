@@ -65,7 +65,6 @@ Home -> Novel
         <div class="col-md-12">
 
         <!-- post -->
-        @foreach ($novel as $n)
         <article class="blog-post">
         <div class="blog-post-container">
           <img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; max-height: 500px;" alt="">
@@ -73,202 +72,63 @@ Home -> Novel
 
         <div class="post-entry">
 
-                    <div class="post-meta"><span class="post-category"><a href="#">kategori {{$n->id_kategori}}</a></span></div>
-                    <div class="divider"></div>
-            <h1><a href="portfolio-item.html">{{$n->judul}}</a></h1>
-                    <div class="post-meta">Posted on <span class="post-time">{{date("d-M-Y", strtotime($n->created_at))}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
-                <p>{{$n->deskripsi}}</p>
-                <div class="tag-cloud">
-                        <a href="#">Fashion</a>
-                        <a href="#">Design</a>
-                        <a href="#">Architecture</a>
-                        <a href="#">Gadgets</a>
-                        <a href="#">Cars</a>
-                        <a href="#">Computers</a>
-                </div>
+        <div class="post-meta"><span class="post-category"><a href="#">kategori {{$n->id_kategori}}</a></span></div>
+        <div class="divider"></div>
+          <h1><a href="portfolio-item.html">{{$n->judul}}</a></h1>
+        <div class="post-meta">Posted on <span class="post-time">{{date("d-M-Y", strtotime($n->created_at))}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
+        <p>{{$n->deskripsi}}</p>
+        <div class="tag-cloud">
+            <a href="#">Fashion</a>
+            <a href="#">Design</a>
+            <a href="#">Architecture</a>
+            <a href="#">Gadgets</a>
+            <a href="#">Cars</a>
+            <a href="#">Computers</a>
+        </div>
 
         </div>
       </article>
-      @endforeach
             <!-- post end -->
-
-            <!-- author -->
-            <section>
-            <h4 class="main-heading"><span>Author</span></h4>
-
-              <div class="author">
-                <div class="author-image">
-                  <img src="images/demo/300x300-4.jpg" alt="">
-                </div>
-                <div class="author-text-body">
-                  <h3><a href="index-list.html">Different Themes</a> <span>Editor in chief</span></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
-                      <div class="author-social">
-                          <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                          <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                          <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-                          <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                          <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
-                          <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
-                          <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
-                      </div>
-                </div>
-              </div>
-
-            </section>
-
-            <!-- related -->
-            <section>
-            <h4 class="main-heading"><span>Related</span></h4>
-
-             <div class="row">
-                  <div class="col-md-4">
-
-                  <div class="related-article">
-                    <div class="related-article-container">
-                      <img src="images/demo/600x400-4.jpg" alt="">
-                    </div>
-                    <div class="related-article-body">
-                      <h3 class="title"><a href="portfolio-item.html">Wonderful Pencil Drawings by Stefan Zsaitsits</a></h3>
-                    </div>
-                  </div>
-
-                  </div>
-                  <div class="col-md-4">
-
-                  <div class="related-article">
-                    <div class="related-article-container">
-                      <img src="images/demo/600x400-2.jpg" alt="">
-                    </div>
-                    <div class="related-article-body">
-                      <h3 class="title"><a href="portfolio-item.html">Lovely Flower Petal Art by Zhi Wei</a></h3>
-                    </div>
-                  </div>
-
-                  </div>
-                  <div class="col-md-4">
-
-                  <div class="related-article">
-                    <div class="related-article-container">
-                      <img src="images/demo/600x400-3.jpg" alt="">
-                    </div>
-                    <div class="related-article-body">
-                      <h3 class="title"><a href="portfolio-item.html">5 Infographics You Should Definitely Check Out</a></h3>
-                    </div>
-                  </div>
-
-                  </div>
-              </div>
-            </section>
-            <!-- end related -->
-
         <!--== Comments ==-->
-        <h4 class="main-heading"><span>Comments</span></h4>
         <div class="comments">
-          <ul class="comment-list">
+        <h4 class="main-heading"><span>Comments</span></h4>
+        @foreach ($komen as $k)
+        <ul class="comment-list">
             <li>
-              <div class="comment">
+                <div class="comment">
                 <div class="comment-author">
-                  <img src="images/demo/avatar.png" alt="Author">
-                  <a href="#" rel="external nofollow" class="comment-author-name">James</a>
-                  <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
+                    <img src="{{base_url()}}assets/images/member/{{$k->email}}/{{$k->photo}}" alt="Author">
+                    <a href="#" rel="external nofollow" class="comment-author-name">{{$k->nama}}</a>
+                    <span class="comment-meta">{{date("d-M-Y", strtotime($k->created))}} at {{date("H:m:s", strtotime($k->created))}}</span>
                 </div>
                 <div class="comment-body">
-                  <p>Maecenas lobortis ante leo, ac rhoncus nisl elementum et. Proin quis ligula pulvinar, commodo enim eget, lacinia dolor. Nulla lacinia viverra nulla a interdum.</p>
-                  <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+                    <p>{{$k->komentar}}</p>
+                    <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
                 </div>
-              </div>
-              <ul class="children">
-                <li>
-                  <div class="comment">
-                    <div class="comment-author">
-                      <img src="images/demo/avatar.png" alt="Author">
-                      <a href="#" rel="external nofollow" class="comment-author-name">Amanda</a>
-                      <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
-                    </div>
-                    <div class="comment-body">
-                      <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.</p>
-                      <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="comment">
-                    <div class="comment-author">
-                      <img src="images/demo/avatar.png" alt="Author">
-                      <a href="#" rel="external nofollow" class="comment-author-name">Sarah</a>
-                      <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
-                    </div>
-                    <div class="comment-body">
-                      <p>Nulla fringilla massa a eros varius laoreet. Cras leo odio, ultrices et aliquam quis, convallis eu turpis.</p>
-                      <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                </div>
             </li>
-            <li>
-              <div class="comment">
-                <div class="comment-author">
-                  <img src="images/demo/avatar.png" alt="Author">
-                  <a href="#" rel="external nofollow" class="comment-author-name">Amanda</a>
-                  <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
-                </div>
-                <div class="comment-body">
-                  <p>Pellentesque suscipit cursus nibh. Aenean est ipsum, varius ac vulputate sed, auctor sed est. Morbi sed vulputate nulla. Praesent luctus felis augue, et porta massa luctus vitae. Ut eleifend ornare purus, non gravida elit ultrices vel.</p>
-                  <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="comment">
-                <div class="comment-author">
-                  <img src="images/demo/avatar.png" alt="Author">
-                  <a href="#" rel="external nofollow" class="comment-author-name">Casper</a>
-                  <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
-                </div>
-                <div class="comment-body">
-                  <p>Cras leo odio, ultrices et aliquam quis, convallis eu turpis. Proin nec nisl eget tellus tempus maximus.</p>
-                  <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
-                </div>
-              </div>
-            </li>
-          </ul>
+        </ul>
+        @endforeach
         </div>
 
         <!--== Post Reply ==-->
-        <h4 class="main-heading"><span>Post Reply</span></h4>
+        <?php if (ucwords($ctrl->session->userdata('main_auth'))==TRUE){ ?>
+            <div class="comment-form-body">
+            <div class="row">
+            <form class="comment-form" action="{{base_url('main/addcomment')}}" method="post">
+            
+                <div class="col-md-12">
+                  <h4 class="main-heading"><span>Type your comment</span></h4>
+                  <input type="hidden" name="id_member" value="{{ucwords($ctrl->session->userdata('id'))}}">
+                  <input type="hidden" name="id_novel" value="{{$n->id_novel}}">
+                  <textarea name="comment" id="comment" placeholder="type here"></textarea>
+                </div>
 
-              <div class="comment-form-body">
-              <div class="row">
-              <form class="comment-form" action="http://example.org/">
-                  <div class="col-md-6">
-
-                      <label for="author">Your name</label>
-                      <input id="author" type="text" placeholder="Your name" name="author">
-
-                  </div>
-
-                  <div class="col-md-6">
-                      <label for="email">Email</label>
-                      <input id="email" type="text" placeholder="Email" name="author">
-                  </div>
-
-                  <div class="col-md-12">
-                      <label for="email">Subject</label>
-                      <input id="email" type="text" placeholder="Subject" name="subject">
-                  </div>
-
-                  <div class="col-md-12">
-                      <label for="comment">Comment</label>
-                      <textarea name="comment" id="comment" cols="35" rows="5"></textarea>
-                  </div>
-
-                  <div class="col-md-12"><input type="submit" value="Post Comment" class="submit-button" /></div>
-              </form>
-              </div>
-              </div>
-
+                <div class="col-md-12"><input type="submit" value="Post Comment" class="submit-button" /></div>
+            </form>
+            </div>
+            </div>
+        <?php } ?>
         </div><!-- end col-md-12 -->
     </div><!-- end row -->
 

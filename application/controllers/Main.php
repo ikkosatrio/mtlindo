@@ -22,6 +22,7 @@ class Main extends CI_Controller {
 		$this->load->model('m_member');
 		$this->load->model('m_login');
 		$this->load->model('m_novel');
+		$this->load->model('m_komen');
 
 		$this->data['config'] 			= $this->m_config->ambil('config',1)->row();
 		$this->data['profil'] 			= $this->m_profil->ambil('profil',1)->row();
@@ -132,6 +133,7 @@ class Main extends CI_Controller {
 			redirect('main','refresh');
 		}else{
 			echo"login gagal";
+			redirect('main/auth/login','refresh');
 		}
 	}
 
@@ -143,9 +145,27 @@ class Main extends CI_Controller {
 	function detail_novel($id)
 	{
 		$where = array('id_novel' => $id);
-		$data['novel'] = $this->m_novel->detail($where,'novel')->result();
+		$data['n']     = $this->m_novel->detail($where,'novel')->row();
+		$data['komen'] = $this->m_komen->tampil_data($where,'komentar')->result();
 		$data['menu']  = "detail_novel";
 		echo $this->blade->nggambar('main.detailnovel',$data);
+	}
+
+	function addcomment()
+	{
+		$id_member = $this->input->post('id_member');
+		$id_novel  = $this->input->post('id_novel');
+		$komen     = $this->input->post('comment');
+		
+		$data = array(
+			'id_member' => $id_member,
+			'id_novel'  => $id_novel,
+			'komentar'  => $komen
+		);
+
+		$this->m_komen->input_data($data,'komentar');
+
+		redirect('main/detail_novel/'.$id_novel,'refresh');
 	}
 
 	public function profil()

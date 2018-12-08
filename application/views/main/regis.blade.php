@@ -88,6 +88,7 @@ $(document).ready(function(){
 
             <div class="col-md-12">
               <span>Photo</span>
+              <span id="photoalert"></span>
               <input type="file" placeholder="Photo" name="photo" id="image-source" required>
             <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="100%" id="image-preview" class="img-rounded img-responsive" style=" width: 200px;">
             </div>
@@ -198,15 +199,18 @@ $(document).ready(function(){
       var imagesize = file.size;
       var match= ["image/jpeg","image/png","image/jpg"];
       if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
-        alert('Please select a valid image file (JPEG/JPG/PNG).');
+        // alert('Please select a valid image file (JPEG/JPG/PNG).');
+        $('#photoalert').html('please select a valid image file (JPEG/JPG/PNG)').css('color', 'red');
         $("#image-source").val('');
         return false;
       }else{
         if((imagesize > "3000000")){
-          alert('Your file size is to big, max Size is: 2500kb');
+          $('#photoalert').html('your file size is to big, max Size is: 2500kb').css('color', 'red');
+          // alert('Your file size is to big, max Size is: 2500kb');
           $("#image-source").val('');
           return false;
         }else{
+          $('#photoalert').html('is ready').css('color', 'blue');
           previewImage();
         }
       }
