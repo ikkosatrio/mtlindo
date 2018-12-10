@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title') </title>
-
+    
+    <link rel="icon" href="{{base_url()}}assets/images/website/config/icon/{{$config->icon}}" type="image/ico">
     <link href="{{base_url()}}assets/template/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{base_url()}}assets/template/css/style.css" rel="stylesheet">
     <link href="{{base_url()}}assets/template/css/shortcodes.css" rel="stylesheet">
@@ -81,16 +82,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="index.html">Default</a></li>
-                <li><a href="index-blog.html">Blog Layout</a></li>
-                <li><a href="index-grid.html">Grid Layout</a></li>
-                <li><a href="index-list.html">List Layout</a></li>
-              </ul>
-            </li>
-            <li><a href="index-grid.html">Fashion</a></li>
+            <li><a href="{{base_url('main')}}">Home</a></li>
+            <li><a href="index-grid.html">Novel</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
@@ -101,8 +94,6 @@
                 <li><a href="contact.html">Contact Form</a></li>
               </ul>
             </li>
-
-            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
 
           </ul>
@@ -127,8 +118,8 @@
     <!-- end main menu -->
 
     @yield('content')
-
-  <p id="back-top">
+    
+   <p id="back-top">
     <a href="#top"><i class="fa fa-angle-up"></i></a>
   </p>
 
@@ -141,17 +132,13 @@
       <div class="footer-dark">
           <div class="footer-socials">
               <a href="https://www.twitter.com/d" class="social"><i class="fa fa-twitter"></i> Twitter</a>
-              <a href="http://www.bloglovin.com//d" class="social"><i class="fa fa-plus"></i> Bloglovin</a>
-              <a href="https://www.facebook.com/d" class="social"><i class="fa fa-facebook-square"></i> Facebook</a>
+              <a href="http://www.bloglovin.com//d" class="social"><i class="fa fa-instagram"></i> {{$config->instagram}}</a>
+              <a href="https://www.facebook.com/d" class="social"><i class="fa fa-facebook-square"></i> {{$config->facebook}}</a>
               <a href="https://dribbble.com/d" class="social dribbble" rel="publisher"><i class="fa fa-dribbble"></i> Dribbble</a>
               <a href="https://plus.google.com/+d" class="social google"><i class="fa fa-google-plus-square"></i> Google+</a>
           </div>
 
-          <div class="footer-menu">
-              <a href="#" class="social">About Us</a>
-              <a href="#" class="social">Archives</a>
-              <a href="#" class="social">Advertise</a>
-              <a href="#" class="social">Contact Us</a>
+          <div class="footer-menu"><span>{{$config->address}}</span><br><span>{{$config->phone}}</span>
           </div>
       </div>
 

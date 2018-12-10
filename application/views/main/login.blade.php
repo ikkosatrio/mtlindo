@@ -15,11 +15,15 @@ $(document).ready(function() {
       dataType:'json',
       success: function(data)
       {
-        if (data === 'oke') {
-          alert('sukses');
+        if (data.code === 'Success') {
+          $('#alert-login').html(data.body);
+          // alert('sukses');
+          window.location = "{{base_url('main')}}";
         }
         else {
-          alert('Invalid Credentials');
+          
+          $('#alert-login').html(data.body);
+          // alert('Invalid Credentials');
         }
       }
    });
@@ -54,7 +58,7 @@ $(document).ready(function() {
           <h2>Login Page</h2><br>
           <form name="form" id="form-login" action="{{base_url('main/authentication')}}" method="post" class="comment-form">
             <div class="row">
-            <div id="alert">
+            <div id="alert-login">
               <!-- <div class="col-md-12">
                 <div class="coloralert" style="background-color: #F6BD42;">
                   <i class="fa fa-warning"></i>

@@ -112,13 +112,13 @@ Home -> Novel
         </div>
 
         <!--== Post Reply ==-->
-        <?php if (ucwords($ctrl->session->userdata('main_auth'))==TRUE){ ?>
             <div class="comment-form-body">
             <div class="row">
             <form class="comment-form" action="{{base_url('main/addcomment')}}" method="post">
             
                 <div class="col-md-12">
                   <h4 class="main-heading"><span>Type your comment</span></h4>
+        <?php if (ucwords($ctrl->session->userdata('main_auth'))==TRUE){ ?>
                   <input type="hidden" name="id_member" value="{{ucwords($ctrl->session->userdata('id'))}}">
                   <input type="hidden" name="id_novel" value="{{$n->id_novel}}">
                   <textarea name="comment" id="comment" placeholder="type here"></textarea>
@@ -126,35 +126,21 @@ Home -> Novel
 
                 <div class="col-md-12"><input type="submit" value="Post Comment" class="submit-button" /></div>
             </form>
-            </div>
-            </div>
+        <?php }else{ ?>
+                <div class="col-md-12"><a href="{{base_url('main/auth/login')}}"><input type="button" value="Log In" class="submit-button"/></a></div>
         <?php } ?>
+            </div>
+            </div>
         </div><!-- end col-md-12 -->
     </div><!-- end row -->
 
    </section>
 
  </div>
-
- <div class="col-md-4">
+<div class="col-md-4">
 
 <!-- SIDE BAR -->
 <div id="sidebar">
-            <!-- sidebar-module-author -->
-            <div class="sidebar-module">
-
-
-                <div class="sidebar-content">
-
-                <h4 class="sidebar-heading"><span>About Us</span></h4>
-
-                    <a href="post.html"><img src="{{base_url()}}assets/template/images/about-me.jpg" style="max-width: 100%; height: auto;" alt="fashion" /></a>
-                    <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
-                    <a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a>
-                </div>
-            </div>
-            <!-- end sidebar-module-author -->
-
              <!-- sidebar-module latest posts -->
             <div class="sidebar-module">
 
@@ -216,135 +202,6 @@ Home -> Novel
                 </div>
             </div>
             <!-- end sidebar-module -->
-
-            <!-- sidebar-module-instagram -->
-            <div class="sidebar-module">
-                <div class="sidebar-content">
-                <h4 class="sidebar-heading"><span>Instagram</span></h4>
-                    <ul class="widget-instagram">
-                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-1.jpg" style="max-width: 100%; height: auto;" alt="Instagram Title" title="Instagram Title"/></a></li>
-                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-2.jpg" style="max-width: 100%; height: auto;" alt="Instagram Title" title="Instagram Title"/></a></li>
-                        <li><a href="#" target="_self"><img src="{{base_url()}}assets/template/images/demo/300x300-3.jpg" style="max-width: 100%; height: auto;" alt="Instagram Title" title="Instagram Title"/></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- end sidebar-module-instagram  -->
-
-            <!-- sidebar-module -->
-            <div class="sidebar-module">
-                <div class="sidebar-content">
-                <h4 class="sidebar-heading"><span>Social</span></h4>
-                    <div class="widget-social">
-                        <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-                        <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                        <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
-                        <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
-                        <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- end sidebar-module -->
-
-            <!-- sidebar-module -->
-            <div class="sidebar-module">
-
-                <div class="sidebar-content">
-                <h4 class="sidebar-heading"><span>Fashion</span></h4>
-                    <div class="widget-post">
-                        <div class="widget-post-image">
-                            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/300x300-1.jpg" style="max-width: 100%; height: auto;" alt="fashion" /></a>
-                        </div>
-                        <div class="widget-post-entry">
-                            <h3 class="widget-post-title"><a href="post.html">Watch Top Brands and Agencies Live-Tweet</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i>15. MARCH 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>11</span></div>
-                        </div>
-                    </div>
-
-                    <div class="widget-post">
-                        <div class="widget-post-image">
-                            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/300x300-5.jpg" style="max-width: 100%; height: auto;" alt="fashion" /></a>
-                        </div>
-                        <div class="widget-post-entry">
-                            <h3 class="widget-post-title"><a href="post.html">The Influences of Modern Minimalism</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>6</span></div>
-                        </div>
-                    </div>
-
-                    <div class="widget-post">
-                        <div class="widget-post-image">
-                            <a href="post.html"><img src="{{base_url()}}assets/template/images/demo/300x300-7.jpg" style="max-width: 100%; height: auto;" alt="fashion" /></a>
-                        </div>
-                        <div class="widget-post-entry">
-                            <h3 class="widget-post-title"><a href="post.html">Coors Light Gets New Look, Miller Lite Targets Biculturals</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-- end sidebar-module -->
-
-            <!-- sidebar-module latest comments -->
-            <div class="sidebar-module">
-
-                <div class="sidebar-content">
-                <h4 class="sidebar-heading"><span>Latest Comments</span></h4>
-                    <div class="lcomments-item">
-                        <a href="#">Mr. Wordpress</a> on <a href="post.html">Monotype Typecast, Stately Type and TDC Generator</a>
-                    </div>
-                    <div class="lcomments-item">
-                        <a href="#">Jeremy Clarkson</a> on <a href="post.html">Five centuries, but also the nation</a>
-                    </div>
-                    <div class="lcomments-item">
-                        <a href="#">John Doe</a> on <a href="post.html">12 Animated Magnets from Fictional Places</a>
-                    </div>
-                    <div class="lcomments-item">
-                        <a href="#">Claire</a> on <a href="post.html">Wonderful Pencil Drawings by Stefan</a>
-                    </div>
-                    <div class="lcomments-item">
-                        <a href="#">Sarah Lee</a> on <a href="post.html">Five centuries, but also the nation</a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- end sidebar-module latest comments -->
-
-             <!-- sidebar-module-tag-cloud -->
-            <div class="sidebar-module">
-
-                <div class="sidebar-content">
-                <h4 class="sidebar-heading"><span>Tag cloud</span></h4>
-                    <div class="tag-cloud">
-                        <a href="#">Fashion</a>
-                        <a href="#">Design</a>
-                        <a href="#">Architecture</a>
-                        <a href="#">Gadgets</a>
-                        <a href="#">Cars</a>
-                        <a href="#">Music</a>
-                        <a href="#">Recipe</a>
-                        <a href="#">Lifestyle</a>
-                        <a href="#">Travel</a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- end sidebar-module-tag-cloud -->
-
-            <!-- sidebar-module-banner -->
-            <div class="sidebar-module">
-
-
-                <div class="sidebar-content">
-                <h4 class="sidebar-heading"><span>Advertisement</span></h4>
-                    <div class="sidebar-content banner-widget">
-                        <a href="#"><img src="{{base_url()}}assets/template/images/banner-300x250.png" style="max-width: 100%; height: auto;" alt="advertisement"/></a>
-                    </div>
-                </div>
-            </div>
-            <!-- end sidebar-module-banner -->
-
   <!-- end SIDE BAR -->
   </div>
   </div>
@@ -372,4 +229,6 @@ Home -> Novel
     </div>
   </div>
   <!-- end instagram widget in main page -->
+
+
 @endsection

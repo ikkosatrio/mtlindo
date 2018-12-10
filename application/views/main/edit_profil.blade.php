@@ -80,6 +80,7 @@ $(document).ready(function(){
 
             <div class="col-md-12">
               <span>Full name</span>
+              <input type="hidden" name="email" required value="{{$member->email}}">
               <input type="text" placeholder="Your name" name="name" required value="{{$member->nama}}">
             </div>
 
