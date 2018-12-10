@@ -46,8 +46,8 @@ Dashboard - Administrasi
 		                        	<th>No</th>
 		                        	<th>Gambar</th>
 		                            <th>Member</th>
-		                            <th>Kategori</th>
-		                            <th>Di Lihat</th>
+		                            {{-- <th>Kategori</th> --}}
+		                            {{-- <th>Di Lihat</th> --}}
 		                            <th>Status</th>
 		                            <th class="text-center">Aksi</th>
 		                        </tr>
@@ -57,29 +57,33 @@ Dashboard - Administrasi
 		                         <tr>
 		                        	<td align="center">{{($key+1)}}</td>
 			                        <td>
+			                        	@if (isset($result->cover))
+			                        		{{-- expr --}}
+			                        	
 				                        <a href="{{$result->cover}}" data-popup="lightbox">
 					                        <img src="{{img_member($result->cover)}}" alt="{{$result->cover}}" class="img-rounded img-preview" style="object-fit: cover;height: 70px;">
 				                        </a>
+				                        @endif
 			                        </td>
 			                        <td style="width:300px;">
-			                        	<a href="{{base_url('superuser/member/update/'.$result->id_member.'/'.seo($result->judul))}}">
-			                        		<b>{{ucwords(read_more($result->judul,30))}}</b>
+			                        	<a href="{{base_url('superuser/member/update/'.$result->id_member.'/'.seo($result->nama))}}">
+			                        		<b>{{ucwords(read_more($result->nama,30))}}</b>
 			                        	</a><br>
 			                        	<span class="text-size-mini">
 			                        	Tanggal Publish : {{tgl_indo($result->created_at)}}
 			                        	</span><br>
 			                        	<span class="text-size-small text-muted">
-			                        		{{read_more(strip_tags($result->deskripsi),30)}}
+			                        		{{read_more(strip_tags($result->email),30)}}
 			                        	</span>
 			                        </td>
-			                        <td align="center">
+			                        {{-- <td align="center">
 			                        	<a href="{{base_url('superuser/kategori/'.$result->id_kategori)}}">
 			                        		<span class="label label-warning"><i class="fa fa-tags"></i> &nbsp;{{read_more(@$result->nama,20)}}</span>
 			                        	</a>
-			                        </td>
-			                        <td align="center">
+			                        </td> --}}
+			                        {{-- <td align="center">
 			                        	<span class="label label-success"><i class="icon-eye"></i> &nbsp;{{$result->view}} Di Lihat</span>
-			                        </td>
+			                        </td> --}}
 			                        <td align="center">
 			                        	@if($result->status==1)
 			                        		<span class="label label-default label-icon" data-popup="tooltip" title="Draft"><i class="icon-pencil5"></i></span>
@@ -93,7 +97,7 @@ Dashboard - Administrasi
 					                    	<button type="button" class="btn btn-danger btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown"><i class="icon-cog5 position-left"></i> Action <span class="caret"></span></button>
 					                    	<ul class="dropdown-menu dropdown-menu-right">
 					                    		<li>
-													<a href="{{base_url('main/member/'.$result->id_member.'/'.seo($result->judul))}}" target="_blank">
+													<a href="{{base_url('main/member/'.$result->id_member.'/'.seo($result->nama))}}" target="_blank">
 														<i class="fa fa-eye"></i> Lihat Member Website
 													</a>
 												</li>
@@ -103,12 +107,12 @@ Dashboard - Administrasi
 													</a>
 												</li>
 												<li>
-													<a href="{{base_url('superuser/member/update/'.$result->id_member.'/'.seo($result->judul))}}">
+													<a href="{{base_url('superuser/member/update/'.$result->id_member.'/'.seo($result->nama))}}">
 														<i class="fa fa-edit"></i> Ubah Member
 													</a>
 												</li>
 												<li><a href="javascript:void(0)" onclick="deleteIt(this)"
-												data-url="{{base_url('superuser/member/deleted/'.$result->id_member.'/'.seo($result->judul))}}">
+												data-url="{{base_url('superuser/member/deleted/'.$result->id_member.'/'.seo($result->nama))}}">
 														<i class="fa fa-trash"></i> Hapus Member
 													</a>
 												</li>
