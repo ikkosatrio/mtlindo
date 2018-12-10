@@ -46,6 +46,7 @@ class Main extends CI_Controller {
 
 	function regis()
 	{
+		$data = $this->data;
 		$data['menu'] = "regis";
 		echo $this->blade->nggambar('main.regis',$data);
 	}
@@ -76,39 +77,26 @@ class Main extends CI_Controller {
 		$email = $this->input->post('email');
 		$name  = $this->input->post('name');
 		$pass  = $this->input->post('pass');
-		$photo = $this->input->post('photo');
 
 		mkdir('./assets/images/member/'.$email, 0777, TRUE);
-		$config['upload_path']   = './assets/images/member/'.$email;
-		$config['allowed_types'] = 'jpg|png|jpeg';
-		$config['max_size']      = '10000';
-		$config['max_width']     = '5000';
-		$config['max_height']    = '5000';
-		
-		$this->load->library('upload', $config);
-		
-		if ( ! $this->upload->do_upload('photo')){
-			$error = array('error' => $this->upload->display_errors());
-			var_dump($error);
-		}
-		else{
-			$data = array('upload_data' => $this->upload->data());
-			// echo "success";
-			$status = 'registered';
-		}
 
-		$photo = $this->upload->data();
+		$photo = time().$_FILES['photo']['name'];
+		$photo = str_replace(' ', '_', $photo);
+
+		if (!empty($_FILES['photo']['name'])) {
+			$this->upload('./assets/images/member/'.$email,'photo',$photo);
+		}
 
 		$data = array(
 			'email'    => $email,
 			'nama'     => $name,
 			'password' => md5($pass),
-			'photo'    => $photo['file_name']
+			'photo'    => $photo
 		);
 
 		$this->m_member->input_data($data,'member');
 
-		redirect('main/auth/'.$status,'refresh');
+		redirect('main/auth/registered','refresh');
 	}
 
 	function detail_member($id_member,$value)
@@ -131,21 +119,53 @@ class Main extends CI_Controller {
 				'password' => md5($pass)
 			);
 		}else{
-			$nama = $this->input->post('name');
+			$nama  = $this->input->post('name');
+			$email = $this->input->post('email');
+
+			$photo = time().$_FILES['photo']['name'];
+			$photo = str_replace(' ', '_', $photo);
+			if (!empty($_FILES['photo']['name'])) {
+				$this->upload('./assets/images/member/'.$email,'photo',$photo);
+			}
 			$data = array(
-				'nama' => $nama
+				'nama' => $nama,
+				'photo' => $photo
 			);
+
 		}
 		$where = array('id_member' => $id_member);
 		
 		$this->m_member->update_data($where,$data,'member');
 		echo"<script>alert('edit success');</script>";
-		return;
 		redirect('main','refresh');
+	}
+
+	private function upload($dir,$name ='userfile',$filename=null){
+		$config['upload_path']      = $dir;
+        $config['allowed_types']    = 'gif|jpg|png|jpeg';
+        $config['max_size']         = 8000;
+        $config['encrypt_name'] 	= FALSE;
+        $config['file_name'] 		= $filename;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload($name))
+        {
+        		$data['auth'] 	= false;
+                $data['msg'] 	= $this->upload->display_errors();
+                return $data;
+        }
+        else
+        {
+        		$data['auth']	= true;
+        		$data['msg']	= $this->upload->data();
+        		return $data;
+        }
 	}
 
 	function auth($status)
 	{
+		$data = $this->data;
 		if ($status=='registered') {
 			$data['menu'] = "registered";
 			echo $this->blade->nggambar('main.login',$data);
@@ -174,22 +194,23 @@ class Main extends CI_Controller {
 			);
 			// echo"success, welcome";
 			$this->session->set_userdata($data_session);
-			// echo"oke";
-			// return ;
-			// $arrayResponse = array('Code' => "Succees",'Message' => "Succees Bro", );
-			// echo json_encode($arrayResponse);
-			// redirect('main','refresh');
-			// 
-			echo json_encode ("oke");
+			$arrayResponse = array('code' => 'Success','body' => '<div class="col-md-12">
+                <div class="coloralert" style="background-color: green;">
+                  <i class="fa fa-check"></i>
+                  <p>Login Success...!</p>
+                </div>
+              </div>', );
+			echo json_encode($arrayResponse);
 			return;
 		}else{
-			// echo"login gagal";
-			// redirect('main/auth/login','refresh');
-			// echo"Gagal Login";
-			echo json_encode ("Gagal Login");
+			$arrayResponse = array('code' => 'Error','body' => '<div class="col-md-12">
+                <div class="coloralert" style="background-color: #F6BD42;">
+                  <i class="fa fa-close"></i>
+                  <p>Login failed, please check your email & password again...!</p>
+                </div>
+              </div>', );
+			echo json_encode($arrayResponse);
 			return;
-			// $arrayResponse = array('Code' => "Error",'Message' => "gagal Bro", );
-			// echo json_encode($arrayResponse);
 		}
 	}
 
@@ -200,6 +221,7 @@ class Main extends CI_Controller {
 
 	function detail_novel($id)
 	{
+		$data = $this->data;
 		$where = array('id_novel' => $id);
 		$data['n']     = $this->m_novel->detail($where,'novel')->row();
 		$data['komen'] = $this->m_komen->tampil_data($where,'komentar')->result();
