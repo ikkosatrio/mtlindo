@@ -7,14 +7,14 @@ Home -> Regis
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script>
 $(document).ready(function(){
-  $("#email").on("blur", function(){
+  $("#old_pass").on("blur", function(){
     $.ajax({
-      url: "<?php echo base_url('main/cek_email');?>",
+      url: "<?php echo base_url('main/cek_password');?>",
       type: "POST",
-      data: 'email='+$(this).val(),
+      data: 'old_pass='+$(this).val()+'&id='+{{ucwords($ctrl->session->userdata('id'))}},
       success: function(data){
-        $('#emailalert').html(data).css('color', 'red');
-        if (data!='') {$("#email").val('');}
+        $('#oldpassalert').html(data).css('color', 'red');
+        if (data!='') {$("#old_pass").val('');}
       }
     });
   })
@@ -39,63 +39,64 @@ $(document).ready(function(){
 <div class="content">
 
     <div class="row">
-        <div class="col-sm-12">
+      <div class="col-sm-12">
 
           <!-- post -->
-          <article class="blog-post">
+      <article class="blog-post">
 
-          <div class="post-entry">
+        <div class="post-entry">
 
-          <h2>Form Registration</h2><br>
-         <!-- Button trigger modal -->
-          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-          </button> -->
-        <!-- Modal -->
-          <form name="form" id="form" action="{{base_url('main/addmember')}}" method="post" enctype="multipart/form-data" class="comment-form">
+          <?php if ($menu == 'edit_password'): ?>
+          <h2>Edit Password</h2>
+          <br>
+          <form name="form" id="form" action="{{base_url('main/update_member/').$member->id_member.'/password'}}" method="post" class="comment-form">
             <div class="row">
-            <div id="alert">
-              <!-- <div class="col-md-12">
-                <div class="coloralert" style="background-color: #F6BD42;">
-                  <i class="fa fa-warning"></i>
-                  <p>Some Warning Text This may take a few seconds !</p>
-                  <a href="#close-alert"class="close-alert"><i class="fa fa-times-circle"></i></a>
-                </div>
-              </div> -->
-            </div>
-            <div class="col-md-6">
-              <span>Full name</span>
-              <input type="text" placeholder="Your name" name="name" required>
-            </div>
 
-            <div class="col-md-6">
-              <span>Email </span>
-              <span id="emailalert"></span>
-              <input id="email" type="email" placeholder="Email" name="email" required>
-            </div>
-
-            <div class="col-md-6">
-              <span>Password</span>
-              <input id="pass" type="password" minlength="8" placeholder="Password" name="pass" required>
-            </div>
-
-            <div class="col-md-6">
-              <span>Confim password </span>
-              <span id='message'></span>
-              <input id="c_pass" type="password" placeholder="Confirm Password" name="c_pass" required>
+            <div class="col-md-12">
+              <span>old password</span>
+              <span id="oldpassalert"></span>
+              <input type="password" name="old_pass" id="old_pass" required>
             </div>
 
             <div class="col-md-12">
-              <span>Photo</span>
-              <span id="photoalert"></span>
-              <input type="file" placeholder="Photo" name="photo" id="image-source" required>
-            <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="100%" id="image-preview" class="img-rounded img-responsive" style=" width: 200px;">
+              <span>new password</span>
+              <input type="password" name="pass" minlength="8" id="pass" required>
+            </div>
+
+            <div class="col-md-12">
+              <span>Confirm new password</span>
+              <span id='message'></span>
+              <input type="password" name="c_pass" id="c_pass" required>
             </div>
 
             <div class="col-md-12"><input type="submit" value="send" class="submit-button"/></div>
             </div>
           </form>
-      </div>
+          <?php else: ?>
+          <h2>Edit Profile</h2>
+          <br>
+          <form name="form" id="form" action="{{base_url('main/update_member/').$member->id_member.'/profile'}}" method="post" enctype="multipart/form-data" class="comment-form">
+            <div class="row">
+
+            <div class="col-md-12">
+              <span>Full name</span>
+              <input type="text" placeholder="Your name" name="name" required value="{{$member->nama}}">
+            </div>
+
+            <div class="col-md-12">
+              <span>Photo</span>
+              <span id="photoalert"></span>
+              <input type="file" placeholder="Photo" name="photo" id="image-source">
+            <img src="{{base_url()}}assets/images/member/{{$member->email}}/{{$member->photo}}" width="100%" id="image-preview" class="img-rounded img-responsive" style=" width: 200px;">
+            </div>
+
+            <div class="col-md-12"><input type="submit" value="send" class="submit-button"/></div>
+            </div>
+          </form>
+        
+          <?php endif ?>
+
+        </div>
 
       </article>
 

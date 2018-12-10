@@ -47,6 +47,8 @@
 
         <span class="top-bar-socials">
           <?php if (ucwords($ctrl->session->userdata('main_auth'))==TRUE){ ?>
+            <a href="{{base_url('main/detail_member/').ucwords($ctrl->session->userdata('id')).'/password'}}">Change Password</a>
+            <a href="{{base_url('main/detail_member/').ucwords($ctrl->session->userdata('id')).'/profile'}}">Edit Profile</a>
             <a href="{{base_url('main/logout')}}">Log out</a>
           <?php } ?>
         </span>

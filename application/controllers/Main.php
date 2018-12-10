@@ -60,6 +60,17 @@ class Main extends CI_Controller {
 		}
 	}
 
+	function cek_password()
+	{
+		$id       = $this->input->post('id');
+		$password = $this->input->post('old_pass');
+		$where = array('id_member' => $id);
+		$cek = $this->m_member->detail($where,'member')->row();
+		if ($cek->password != md5($password)) {
+			echo"is wrong, please input your right old password...!";
+		}
+	}
+
 	function addmember()
 	{
 		$email = $this->input->post('email');
@@ -100,6 +111,38 @@ class Main extends CI_Controller {
 		redirect('main/auth/'.$status,'refresh');
 	}
 
+	function detail_member($id_member,$value)
+	{
+		$where = array('id_member' => $id_member);
+		$data['member'] = $this->m_member->detail($where,'member')->row();
+		if ($value=='password') {
+			$data['menu'] = "edit_password";
+		}else{
+			$data['menu'] = "edit_profil";
+		}
+		echo $this->blade->nggambar('main.edit_profil',$data);
+	}
+
+	function update_member($id_member,$menu)
+	{
+		if ($menu=='password') {
+			$pass = $this->input->post('pass');
+			$data = array(
+				'password' => md5($pass)
+			);
+		}else{
+			$nama = $this->input->post('name');
+			$data = array(
+				'nama' => $nama
+			);
+		}
+		$where = array('id_member' => $id_member);
+		
+		$this->m_member->update_data($where,$data,'member');
+		echo"<script>alert('edit success');</script>";
+		redirect('main','refresh');
+	}
+
 	function auth($status)
 	{
 		if ($status=='registered') {
@@ -130,10 +173,16 @@ class Main extends CI_Controller {
 			);
 			echo"success, welcome";
 			$this->session->set_userdata($data_session);
-			redirect('main','refresh');
+			echo"oke";
+			// $arrayResponse = array('Code' => "Succees",'Message' => "Succees Bro", );
+			// echo json_encode($arrayResponse);
+			// redirect('main','refresh');
 		}else{
-			echo"login gagal";
-			redirect('main/auth/login','refresh');
+			// echo"login gagal";
+			// redirect('main/auth/login','refresh');
+			echo"Gagal Login";
+			// $arrayResponse = array('Code' => "Error",'Message' => "gagal Bro", );
+			// echo json_encode($arrayResponse);
 		}
 	}
 

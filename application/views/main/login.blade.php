@@ -4,6 +4,27 @@ Home -> Login
 @endsection
 @section('content')
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#form-login').submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: $("#form-login").attr('action'), //nama action script php sobat
+      data: $(this).serialize(),
+      success: function(data)
+      {
+        if (data === 'oke') {
+          alert('sukses');
+        }
+        else {
+          alert('Invalid Credentials');
+        }
+      }
+   });
+ });
+});
+</script>
 <div class="content">
 
     <div class="row">
@@ -30,7 +51,7 @@ Home -> Login
           </div>
           
           <h2>Login Page</h2><br>
-          <form name="form" id="form" action="{{base_url('main/authentication')}}" method="post" class="comment-form">
+          <form name="form" id="form-login" action="{{base_url('main/authentication')}}" method="post" class="comment-form">
             <div class="row">
             <div id="alert">
               <!-- <div class="col-md-12">
