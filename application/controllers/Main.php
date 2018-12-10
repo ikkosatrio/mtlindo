@@ -140,6 +140,7 @@ class Main extends CI_Controller {
 		
 		$this->m_member->update_data($where,$data,'member');
 		echo"<script>alert('edit success');</script>";
+		return;
 		redirect('main','refresh');
 	}
 
@@ -171,16 +172,22 @@ class Main extends CI_Controller {
 				'photo'     => $cek->photo,
 				'main_auth' => TRUE
 			);
-			echo"success, welcome";
+			// echo"success, welcome";
 			$this->session->set_userdata($data_session);
-			echo"oke";
+			// echo"oke";
+			// return ;
 			// $arrayResponse = array('Code' => "Succees",'Message' => "Succees Bro", );
 			// echo json_encode($arrayResponse);
 			// redirect('main','refresh');
+			// 
+			echo json_encode ("oke");
+			return;
 		}else{
 			// echo"login gagal";
 			// redirect('main/auth/login','refresh');
-			echo"Gagal Login";
+			// echo"Gagal Login";
+			echo json_encode ("Gagal Login");
+			return;
 			// $arrayResponse = array('Code' => "Error",'Message' => "gagal Bro", );
 			// echo json_encode($arrayResponse);
 		}

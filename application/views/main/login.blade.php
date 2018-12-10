@@ -12,6 +12,7 @@ $(document).ready(function() {
       type: "POST",
       url: $("#form-login").attr('action'), //nama action script php sobat
       data: $(this).serialize(),
+      dataType:'json',
       success: function(data)
       {
         if (data === 'oke') {
