@@ -1,6 +1,6 @@
 @extends('main.template')
 @section('title')
-Home -> Novel
+MTLINDO -> Home
 @endsection
 @section('content')
     <div class="slider">
@@ -81,7 +81,7 @@ Home -> Novel
 
                 <div class="grid-post-body">
                     <h3 class="title" align="center"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">{{$n->judul}}</a></h3>
-                    <p>{{$n->deskripsi}}</p>
+                    <p>{!! $n->deskripsi !!}</p>
                     <p><a href="{{base_url('main/detail_novel/').$n->id_novel}}" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
                 </div>
             </div>
