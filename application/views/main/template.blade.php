@@ -131,7 +131,7 @@ inspired from http://codepen.io/Rowno/pen/Afykb
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="logo"><a href="{{base_url()}}"><img id="logo" src="{{base_url()}}assets/template/images/logo.png" alt="logo"></a></div>
+                    <div class="logo"><a href="{{base_url()}}"><img id="logo" src="{{base_url()}}assets/images/website/config/logo/{{$config->logo}}" alt="logo"></a></div>
                 </div>
             </div>
 
@@ -150,20 +150,20 @@ inspired from http://codepen.io/Rowno/pen/Afykb
           </button>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{{base_url('main')}}">Home</a></li>
-            <li><a href="index-grid.html">Novel</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategori <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu">
-                @foreach($kategoris as $key => $result)
-                    <li><a href="{{base_url('main')}}">{{$result->nama}}</a></li>
-                @endforeach
-              </ul>
-            </li>
-            <li><a href="contact.html">About us</a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="{{base_url('main')}}">Home</a></li>
+                <li><a href="{{base_url('main')}}">Novel</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategori <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        @foreach($kategoris as $key => $result)
+                            <li><a href="{{base_url('main')}}">{{$result->nama}}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+                <li><a href="{{base_url('main')}}">About us</a></li>
 
-          </ul>
+            </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
@@ -201,7 +201,7 @@ inspired from http://codepen.io/Rowno/pen/Afykb
               <a href="https://www.twitter.com/d" class="social"><i class="fa fa-twitter"></i> Twitter</a>
               <a href="http://www.bloglovin.com//d" class="social"><i class="fa fa-instagram"></i> {{$config->instagram}}</a>
               <a href="https://www.facebook.com/d" class="social"><i class="fa fa-facebook-square"></i> {{$config->facebook}}</a>
-              <a href="https://dribbble.com/d" class="social dribbble" rel="publisher"><i class="fa fa-dribbble"></i> Dribbble</a>
+              <a href="https://dribbble.com/d" class="social dribbble" rel="publisher"><i class="fa fa-envelope"></i> {{$config->email}}</a>
               <a href="https://plus.google.com/+d" class="social google"><i class="fa fa-google-plus-square"></i> Google+</a>
           </div>
 

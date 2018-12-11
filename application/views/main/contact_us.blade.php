@@ -1,6 +1,6 @@
 @extends('main.template')
 @section('title')
-MTLINDO -> Registration
+MTLINDO -> Contact Us
 @endsection
 @section('content')
 

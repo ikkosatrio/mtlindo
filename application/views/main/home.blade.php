@@ -1,6 +1,6 @@
 @extends('main.template')
 @section('title')
-Home -> Novel
+MTLINDO -> Home
 @endsection
 @section('content')
     <div class="slider">
@@ -15,8 +15,8 @@ Home -> Novel
                     <!-- Carousel items -->
                     <div class="carousel-inner carousel-zoom">
                         @foreach($slider as $key => $result)
-                        <div class="{{$key==0 ? 'active':''}} item"><img class="img-responsive" src="{{img_slider($result->cover)}}">
-                            <div class="carousel-caption">
+                        <div class="{{$key==0 ? 'active':''}} item"><img style="width: 100%;height: 50%;" class="img-responsive" src="{{img_slider($result->cover)}}">
+                            <div class="carousel-caption" style="padding-bottom: 100px!important;">
                                 <h2>{{$result->judul}}</h2>
                                 <p>{!! $result->deskripsi !!}</p>
                             </div>
@@ -60,7 +60,7 @@ Home -> Novel
 
                 <div class="grid-post-body">
                     <h3 class="title" align="center"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">{{$n->judul}}</a></h3>
-                    <p>{{$n->deskripsi}}</p>
+                    <p>{!! $n->deskripsi !!}</p>
                     <p><a href="{{base_url('main/detail_novel/').$n->id_novel}}" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
                 </div>
             </div>
