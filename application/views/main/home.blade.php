@@ -123,7 +123,7 @@ MTLINDO -> Home
                         </div>
                         <div class="widget-post-entry">
                             <h3 class="widget-post-title"><a href="post.html">{{$result->judul}}</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i>{{$result->created_at}}
+                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i>{{tgl_indo($result->created_at)}}
                                 {{--<span class="widget-post-comments"><i class="fa fa-comments"></i>15</span>--}}
                             </div>
                         </div>
