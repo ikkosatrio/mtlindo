@@ -16,6 +16,13 @@
 
     <!-- only for demo -->
     <link href="{{base_url()}}assets/template/css/demo-settings.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2.1.2/dist/flickity.min.css">
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="https://unpkg.com/flickity@2.1.2/dist/flickity.pkgd.min.js"></script>
 
     <!-- Custom styles for this template -->
     <!-- <link href="css/non-responsive.css" rel="stylesheet"> -->
@@ -23,8 +30,70 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+    <style>
+        /*
+inspired from http://codepen.io/Rowno/pen/Afykb
+& https://jsfiddle.net/q0rgL8ws/
+*/
+        .carousel-fade .carousel-inner .item {
+            opacity: 0;
+            transition-property: opacity;
+            overflow:hidden;
+        }
+        .item.active img {
+            transition: transform 5000ms linear 0s;
+            /* This should be based on your carousel setting. For bs, it should be 5second*/
+            transform: scale(1.05, 1.05);
+        }
+        .carousel-fade .carousel-inner .active {
+            opacity: 1;
+        }
+
+        .carousel-fade .carousel-inner .active.left,
+        .carousel-fade .carousel-inner .active.right {
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .carousel-fade .carousel-inner .next.left,
+        .carousel-fade .carousel-inner .prev.right {
+            opacity: 1;
+        }
+
+        .carousel-fade .carousel-control {
+            z-index: 2;
+        }
+
+        /*
+        WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+        now override the 3.3 new styles for modern browsers & apply opacity
+        */
+        @media all and (transform-3d), (-webkit-transform-3d) {
+            .carousel-fade .carousel-inner > .item.next,
+            .carousel-fade .carousel-inner > .item.active.right {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            .carousel-fade .carousel-inner > .item.prev,
+            .carousel-fade .carousel-inner > .item.active.left {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            .carousel-fade .carousel-inner > .item.next.left,
+            .carousel-fade .carousel-inner > .item.prev.right,
+            .carousel-fade .carousel-inner > .item.active {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    </style>
+
     <![endif]-->
 
 </head>
@@ -85,16 +154,14 @@
             <li><a href="{{base_url('main')}}">Home</a></li>
             <li><a href="index-grid.html">Novel</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategori <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="404.html">404 page</a></li>
-                <li><a href="shortcodes.html">Shortcodes</a></li>
-                <li><a href="post-video.html">Post with Video</a></li>
-                <li><a href="about.html">Full Width Page</a></li>
-                <li><a href="contact.html">Contact Form</a></li>
+                @foreach($kategoris as $key => $result)
+                    <li><a href="{{base_url('main')}}">{{$result->nama}}</a></li>
+                @endforeach
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">About us</a></li>
 
           </ul>
 
@@ -143,8 +210,8 @@
       </div>
 
       <div class="footer-bottom">
-          <i class="fa fa-copyright"></i> Copyright 2015. All rights reserved.<br />
-          Theme made by <a href="http://themeforest.net/user/different-themes/portfolio?ref=different-themes">Different Themes</a>
+          <i class="fa fa-copyright"></i> Copyright 2019. All rights reserved.<br />
+          Theme made by CakCode
       </div>
 
 </footer>
@@ -153,7 +220,7 @@
 <script type="text/javascript" src="{{base_url()}}assets/template/js/jquery-latest.min.js"></script>
 <script type="text/javascript" src="{{base_url()}}assets/template/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{base_url()}}assets/template/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="{{base_url()}}assets/template/js/demo-settings.js"></script>
+{{--<script type="text/javascript" src="{{base_url()}}assets/template/js/demo-settings.js"></script>--}}
 <script type="text/javascript" src="{{base_url()}}assets/template/js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="{{base_url()}}assets/template/js/jquery.scrolline.js"></script>
 <script type="text/javascript" src="{{base_url()}}assets/template/js/jquery.WCircleMenu-min.js"></script>

@@ -27,6 +27,10 @@ class Main extends CI_Controller {
 		$this->data['config'] 			= $this->m_config->ambil('config',1)->row();
 		$this->data['profil'] 			= $this->m_profil->ambil('profil',1)->row();
 		$this->data['header'] 			= $this->m_header->ambil('header',1)->row();
+        $this->data['kategoris'] 			= $this->m_kategori->tampil_data('kategori')->result();
+
+
+//        var_dump($data['novelBaru']);
 	}
 
 	public function index()
@@ -40,6 +44,7 @@ class Main extends CI_Controller {
 		$data['album']       = $this->m_album->tampil_data('album')->result();
 		$data['slider']      = $this->m_slider->tampil_data('slider')->result();
 		$data['novel']       = $this->m_produk->tampil_dataBaru('novel')->result();
+        $data['novelBaru'] = $this->m_novel->tampil_dataBaru('novel')->result();
 		$data['menu']        = "home";
 		echo $this->blade->nggambar('main.home',$data);
 	}

@@ -16,10 +16,11 @@ class M_novel extends CI_Model {
 		// return $this->db->get($table);
 	}
 
-	function tampil_dataBaru($table){
+	function tampil_dataBaru($table,$limit = 5){
 		$this->db->from($table);
 		$this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
 		$this->db->order_by('novel.created_at','desc');
+        $this->db->limit($limit);
 		return $query = $this->db->get();
 		// return $this->db->get($table);
 	}
