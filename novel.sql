@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2018 at 04:36 PM
+-- Generation Time: Dec 12, 2018 at 06:00 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -138,7 +138,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`id`, `name`, `email`, `phone`, `address`, `description`, `icon`, `instagram`, `facebook`, `logo`, `meta_deskripsi`, `basic`, `meta_keyword`) VALUES
-(1, 'Ketapang Kuning', 'admin@ketapangkuning.com', '083849940637', 'Universitas 17 Agustus 1945 Surabaya', 'Ketapangkuning adalah sebuah desa di wilayah Kecamatan Ngusikan, Kabupaten Jombang, Provinsi Jawa Timur.<br>', 'logo.png', 'kkn10', 'kkn10', 'logo1.png', 'Kelurahan / Desa Ketapang Kuning Kecamatan Ngusikan Kabupaten / Kota Kab. Jombang Provinsi Jawa Timur Kode Pos 61454			', 5, 'Nomor kode pos di Propinsi Jawa Timur, Kota Jombang, Kecamatan Ngusikan, Ketapang Kuning,kab. jombang							\r\n											');
+(1, 'MTLINDO', 'admin@mtlindo.com', '083849940637', 'Machine Translate Indonesia', 'Ketapangkuning adalah sebuah desa di wilayah Kecamatan Ngusikan, Kabupaten Jombang, Provinsi Jawa Timur.<br>', 'icon2.png', 'Instagram Machine Translate Indonesia', 'Facebook Machine Translate Indonesia', 'logo5.png', '																								Kelurahan / Desa Ketapang Kuning Kecamatan Ngusikan Kabupaten / Kota Kab. Jombang Provinsi Jawa Timur Kode Pos 61454			\r\n											\r\n											', 5, '																								Nomor kode pos di Propinsi Jawa Timur, Kota Jombang, Kecamatan Ngusikan, Ketapang Kuning,kab. jombang							\r\n											\r\n											\r\n											');
 
 -- --------------------------------------------------------
 
@@ -246,14 +246,6 @@ CREATE TABLE `komentar` (
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `komentar`
---
-
-INSERT INTO `komentar` (`id_komen`, `id_member`, `id_novel`, `komentar`, `created`) VALUES
-(1, 5, 3, 'testing comment', '2018-12-06 07:29:34'),
-(2, 2, 3, 'its good....', '2018-12-06 13:29:12');
-
 -- --------------------------------------------------------
 
 --
@@ -277,12 +269,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id_member`, `email`, `nama`, `password`, `code_verification`, `photo`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'john@gmail.com', 'John Doe', '25d55ad283aa400af464c76d713c07ad', NULL, '4.jpg', '2018-11-29 15:31:09', '2018-11-29 15:31:09', NULL),
-(2, 'sabyan@gmail.com', 'Nissa Sabyan', '25d55ad283aa400af464c76d713c07ad', NULL, '3.jpg', '2018-11-29 15:38:44', '2018-11-29 15:38:44', NULL),
-(3, 'paijo@gmail.com', 'Paijo Joyo', '25d55ad283aa400af464c76d713c07ad', NULL, '5.jpg', '2018-11-29 15:50:59', '2018-11-29 15:50:59', NULL),
-(4, 'aisyah@gmail.com', 'Aisyah', '25d55ad283aa400af464c76d713c07ad', NULL, '2.jpg', '2018-11-29 15:55:38', '2018-11-29 15:55:38', NULL),
-(5, 'joni@gmail.com', 'joni', '25d55ad283aa400af464c76d713c07ad', NULL, '2.jpg', '2018-11-29 15:58:27', '2018-11-29 15:58:27', NULL),
-(6, 'paimen@gmail.com', 'Paimen', '25d55ad283aa400af464c76d713c07ad', NULL, '8.jpg', '2018-11-29 16:00:26', '2018-11-29 16:00:26', NULL);
+(1, 'paijo@gmail.com', 'Paijo', '25d55ad283aa400af464c76d713c07ad', NULL, '15444362523.jpg', '2018-12-10 10:04:12', '2018-12-10 10:04:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -307,10 +294,10 @@ CREATE TABLE `novel` (
 --
 
 INSERT INTO `novel` (`id_novel`, `created_at`, `updated_at`, `deskripsi`, `cover`, `status`, `judul`, `id_kategori`, `view`) VALUES
-(1, '2018-10-25 13:32:10', '2018-11-27 13:16:08', '<p>novel ke-1</p>\r\n', '1543296579sampul3.jpg', 0, 'Novel 1', 2, 0),
-(2, '2018-11-01 12:31:14', '2018-11-27 13:16:12', '<p>novel ke-2</p>\r\n', '1543296619novel1.jpg', 0, 'Novel 2', 1, 0),
-(3, '2018-11-27 13:37:10', '2018-11-27 13:37:10', '<p>novel ke-3</p>\r\n', '1543325830sampul2.jpg', 0, 'Novel 3', 1, 0),
-(4, '2018-11-27 13:37:53', '2018-11-27 13:37:53', '<p>novel ke-4</p>\r\n', '1543325873sampul4.gif', 0, 'Novel 4', 1, 0);
+(1, '2018-10-25 13:32:10', '2018-12-12 14:18:19', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543296579sampul3.jpg', 0, 'Novel 1', 2, 0),
+(2, '2018-11-01 12:31:14', '2018-12-12 14:18:31', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543296619novel1.jpg', 0, 'Novel 2', 1, 1),
+(3, '2018-11-27 13:37:10', '2018-12-12 14:18:53', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543325830sampul2.jpg', 0, 'Novel 3', 1, 4),
+(4, '2018-11-27 13:37:53', '2018-12-12 14:18:42', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543325873sampul4.gif', 0, 'Novel 4', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -343,8 +330,9 @@ CREATE TABLE `pesan` (
   `id_pesan` int(11) NOT NULL,
   `nama` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `phone` decimal(10,0) DEFAULT NULL,
   `status` enum('0','1') DEFAULT '0',
-  `pesan` varchar(255) DEFAULT NULL,
+  `pesan` text,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
@@ -352,8 +340,8 @@ CREATE TABLE `pesan` (
 -- Dumping data for table `pesan`
 --
 
-INSERT INTO `pesan` (`id_pesan`, `nama`, `email`, `status`, `pesan`, `created_at`) VALUES
-(2, 'sdf', 'sdf', '0', 'sdf', '2017-07-15 18:00:21');
+INSERT INTO `pesan` (`id_pesan`, `nama`, `email`, `phone`, `status`, `pesan`, `created_at`) VALUES
+(2, 'sdf', 'sdf', NULL, '0', 'sdf', '2017-07-15 18:00:21');
 
 -- --------------------------------------------------------
 
@@ -606,12 +594,12 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_komen` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `novel`
 --
