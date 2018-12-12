@@ -24,29 +24,48 @@ class Main extends CI_Controller {
 		$this->load->model('m_novel');
 		$this->load->model('m_komen');
 
-		$this->data['config'] 			= $this->m_config->ambil('config',1)->row();
-		$this->data['profil'] 			= $this->m_profil->ambil('profil',1)->row();
-		$this->data['header'] 			= $this->m_header->ambil('header',1)->row();
-        $this->data['kategoris'] 			= $this->m_kategori->tampil_data('kategori')->result();
+		$this->load->helper(array('url'));
 
-
-//        var_dump($data['novelBaru']);
+		$this->data['config'] = $this->m_config->ambil('config',1)->row();
+		$this->data['profil'] = $this->m_profil->ambil('profil',1)->row();
+		$this->data['header'] = $this->m_header->ambil('header',1)->row();
 	}
 
 	public function index()
 	{
 		$data                = $this->data;
-		$data['artikelBaru'] = $this->m_artikel->tampil_dataBaru('artikel')->result();
-		$data['artikelPop']  = $this->m_artikel->tampil_dataPop('artikel')->result();
-		$data['produk']      = $this->m_produk->tampil_dataBaru('produk')->result();
-		$data['potensi']     = $this->m_produk->tampil_dataBaru('potensi')->result();
-		$data['gambar']      = $this->m_gambar->tampil_dataBaru('gambar_album')->result();
-		$data['album']       = $this->m_album->tampil_data('album')->result();
-		$data['slider']      = $this->m_slider->tampil_data('slider')->result();
-		$data['novel']       = $this->m_produk->tampil_dataBaru('novel')->result();
-        $data['novelBaru'] = $this->m_novel->tampil_dataBaru('novel')->result();
+		// $data['artikelBaru'] = $this->m_artikel->tampil_dataBaru('artikel')->result();
+		// $data['artikelPop']  = $this->m_artikel->tampil_dataPop('artikel')->result();
+		// $data['produk']      = $this->m_produk->tampil_dataBaru('produk')->result();
+		// $data['potensi']     = $this->m_produk->tampil_dataBaru('potensi')->result();
+		// $data['gambar']      = $this->m_gambar->tampil_dataBaru('gambar_album')->result();
+		// $data['album']       = $this->m_album->tampil_data('album')->result();
+		// $data['slider']      = $this->m_slider->tampil_data('slider')->result();
+		$data['novel']       = $this->m_novel->tampil_dataBaru('novel')->result();
 		$data['menu']        = "home";
 		echo $this->blade->nggambar('main.home',$data);
+	}
+
+	function novel()
+	{
+		$data                = $this->data;
+		$data['novel']       = $this->m_novel->tampil_dataBaru('novel')->result();
+		$data['menu']        = "novel";
+
+		$this->load->database();
+		$jumlah_data = $this->m_novel->tampil_dataBaru('novel')->num_rows();
+		$this->load->library('pagination'); 
+		$config['base_url'] = base_url('main/novel');
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 1;
+		$from = $this->uri->segment(2);
+		$this->pagination->initialize($config);		
+		$data['user'] = $this->m_novel->data($config['per_page'],$from);
+		$data['uri'] = $from;
+
+		$data['pagination'] = $this->pagination->create_links();
+
+		echo $this->blade->nggambar('main.novel',$data);
 	}
 
 	function regis()
@@ -106,6 +125,7 @@ class Main extends CI_Controller {
 
 	function detail_member($id_member,$value)
 	{
+		$data = $this->data;
 		$where = array('id_member' => $id_member);
 		$data['member'] = $this->m_member->detail($where,'member')->row();
 		if ($value=='password') {
@@ -229,6 +249,10 @@ class Main extends CI_Controller {
 		$data = $this->data;
 		$where = array('id_novel' => $id);
 		$data['n']     = $this->m_novel->detail($where,'novel')->row();
+		$viewers = $data['n']->view;
+		// var_dump($viewers);
+		$view = array('view' => $viewers+1);
+		$this->m_member->update_data($where,$view,'novel');
 		$data['komen'] = $this->m_komen->tampil_data($where,'komentar')->result();
 		$data['menu']  = "detail_novel";
 		echo $this->blade->nggambar('main.detailnovel',$data);
@@ -249,6 +273,13 @@ class Main extends CI_Controller {
 		$this->m_komen->input_data($data,'komentar');
 
 		redirect('main/detail_novel/'.$id_novel,'refresh');
+	}
+
+	function contact_us()
+	{
+		$data            = $this->data;
+		$data['menu']    = "contact_us";
+		echo $this->blade->nggambar('main.contact_us',$data);
 	}
 
 	public function profil()

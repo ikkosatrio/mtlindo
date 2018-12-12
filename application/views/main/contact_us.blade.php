@@ -4,22 +4,7 @@ MTLINDO -> Contact Us
 @endsection
 @section('content')
 
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#email").on("blur", function(){
-    $.ajax({
-      url: "<?php echo base_url('main/cek_email');?>",
-      type: "POST",
-      data: 'email='+$(this).val(),
-      success: function(data){
-        $('#emailalert').html(data).css('color', 'red');
-        if (data!='') {$("#email").val('');}
-      }
-    });
-  })
-});
-</script>
+<script src="{{base_url()}}assets/template/js/jquery.js"></script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
@@ -46,13 +31,13 @@ $(document).ready(function(){
 
           <div class="post-entry">
 
-          <h2>Form Registration</h2><br>
+          <h2>Contact Us</h2><br>
          <!-- Button trigger modal -->
           <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Launch demo modal
           </button> -->
         <!-- Modal -->
-          <form name="form" id="form" action="{{base_url('main/addmember')}}" method="post" enctype="multipart/form-data" class="comment-form">
+          <form name="form" id="form" action="{{base_url('')}}" method="post" class="comment-form">
             <div class="row">
             <div id="alert">
               <!-- <div class="col-md-12">
@@ -64,32 +49,19 @@ $(document).ready(function(){
               </div> -->
             </div>
             <div class="col-md-6">
-              <span>Full name</span>
-              <input type="text" placeholder="Your name" name="name" required>
-            </div>
-
-            <div class="col-md-6">
               <span>Email </span>
               <span id="emailalert"></span>
-              <input id="email" type="email" placeholder="Email" name="email" required>
+              <input id="email" type="email" name="email" required>
             </div>
 
             <div class="col-md-6">
-              <span>Password</span>
-              <input id="pass" type="password" minlength="8" placeholder="Password" name="pass" required>
-            </div>
-
-            <div class="col-md-6">
-              <span>Confim password </span>
-              <span id='message'></span>
-              <input id="c_pass" type="password" placeholder="Confirm Password" name="c_pass" required>
+              <span>Phone </span>
+              <input id="phone" type="number" minlength="11" maxlength="13" name="phone" required>
             </div>
 
             <div class="col-md-12">
-              <span>Photo</span>
-              <span id="photoalert"></span>
-              <input type="file" placeholder="Photo" name="photo" id="image-source" required>
-            <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="100%" id="image-preview" class="img-rounded img-responsive" style=" width: 200px;">
+              <span>Message </span>
+              <textarea required></textarea>
             </div>
 
             <div class="col-md-12"><input type="submit" value="send" class="submit-button"/></div>
@@ -106,73 +78,8 @@ $(document).ready(function(){
   </div> <!-- container div -->
 
 </div> <!-- boxed div -->
-<script>
-  function previewImage() {
-    document.getElementById("image-preview").style.display = "block";
-    var oFReader = new FileReader();
-     oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
-
-    oFReader.onload = function(oFREvent) {
-      document.getElementById("image-preview").src = oFREvent.target.result;
-    };
-  };
-</script>
-
- <style>
-    #form label{float:left; width:140px;}
-    #error_msg{color:red; font-weight:bold;}
- </style>
 
 <script>
-  $('#pass, #c_pass').on('keyup', function () {
-    if ($('#pass').val() == $('#c_pass').val()) {
-      $('#message').html('is matching').css('color', 'green');
-    } else 
-      $('#message').html('is not matching').css('color', 'red');
-  });
-  $(document).ready(function(){
-      var $submitBtn = $("#form input[type='submit']");
-      var $passwordBox = $("#pass");
-      var $confirmBox = $("#c_pass");
-      var $errorMsg =  $('<span id="error_msg">Passwords do not match.</span>');
-
-      // This is incase the user hits refresh - some browsers will maintain the disabled state of the button.
-      $submitBtn.removeAttr("disabled");
-
-      function checkMatchingPasswords(){
-          if($confirmBox.val() != "" && $passwordBox.val != ""){
-              if( $confirmBox.val() != $passwordBox.val() ){
-                  $submitBtn.attr("disabled", "disabled");
-                  $errorMsg.insertAfter($confirmBox);
-              }
-          }
-      }
-
-      function resetPasswordError(){
-          $submitBtn.removeAttr("disabled");
-          var $errorCont = $("#error_msg");
-          if($errorCont.length > 0){
-              $errorCont.remove();
-          }  
-      }
-
-      $("#c_pass, #pass")
-      .on("keydown", function(e){
-        /* only check when the tab or enter keys are pressed
-         * to prevent the method from being called needlessly  */
-        if(e.keyCode == 13 || e.keyCode == 9) {
-            checkMatchingPasswords();
-        }
-      })
-      .on("blur", function(){                    
-          // also check when the element looses focus (clicks somewhere else)
-          checkMatchingPasswords();
-      })
-      .on("focus", function(){
-          // reset the error message when they go to make a change
-          resetPasswordError();
-      })
-  });
   var validations ={
     email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
   };
@@ -192,27 +99,5 @@ $(document).ready(function(){
           }
       });
   })
-  $("#image-source").change(function() {
-      var file = this.files[0];
-      var imagefile = file.type;
-      var imagesize = file.size;
-      var match= ["image/jpeg","image/png","image/jpg"];
-      if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
-        // alert('Please select a valid image file (JPEG/JPG/PNG).');
-        $('#photoalert').html('please select a valid image file (JPEG/JPG/PNG)').css('color', 'red');
-        $("#image-source").val('');
-        return false;
-      }else{
-        if((imagesize > "3000000")){
-          $('#photoalert').html('your file size is to big, max Size is: 2500kb').css('color', 'red');
-          // alert('Your file size is to big, max Size is: 2500kb');
-          $("#image-source").val('');
-          return false;
-        }else{
-          $('#photoalert').html('is ready').css('color', 'blue');
-          previewImage();
-        }
-      }
-  });
 </script>
 @endsection

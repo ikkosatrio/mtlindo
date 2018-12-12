@@ -9,6 +9,11 @@ class M_novel extends CI_Model {
 		parent::__construct();
 		
 	}
+
+	function data($number,$offset){
+		return $query = $this->db->get('novel',$number,$offset)->result();		
+	}
+
 	function tampil_data($table){
 		$this->db->from($table);
 		$this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
@@ -16,11 +21,10 @@ class M_novel extends CI_Model {
 		// return $this->db->get($table);
 	}
 
-	function tampil_dataBaru($table,$limit = 5){
+	function tampil_dataBaru($table){
 		$this->db->from($table);
 		$this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
 		$this->db->order_by('novel.created_at','desc');
-        $this->db->limit($limit);
 		return $query = $this->db->get();
 		// return $this->db->get($table);
 	}

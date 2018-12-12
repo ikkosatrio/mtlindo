@@ -150,9 +150,10 @@ inspired from http://codepen.io/Rowno/pen/Afykb
           </button>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+
             <ul class="nav navbar-nav">
-                <li><a href="{{base_url('main')}}">Home</a></li>
-                <li><a href="{{base_url('main')}}">Novel</a></li>
+                <li><a href="{{base_url('')}}">Home</a></li>
+                <li><a href="{{base_url('main/novel')}}">Novel</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategori <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
@@ -161,9 +162,10 @@ inspired from http://codepen.io/Rowno/pen/Afykb
                         @endforeach
                     </ul>
                 </li>
-                <li><a href="{{base_url('main')}}">About us</a></li>
+                <li><a href="{{base_url('main/contact_us')}}">Contact us</a></li>
 
             </ul>
+
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
@@ -205,8 +207,8 @@ inspired from http://codepen.io/Rowno/pen/Afykb
               <a href="https://plus.google.com/+d" class="social google"><i class="fa fa-google-plus-square"></i> Google+</a>
           </div>
 
-          <div class="footer-menu"><span>{{$config->address}}</span><br><span>{{$config->phone}}</span>
-          </div>
+<!--           <div class="footer-menu"><span>{{$config->address}}</span><br><span>{{$config->phone}}</span>
+          </div> -->
       </div>
 
       <div class="footer-bottom">
