@@ -24,8 +24,6 @@ class Main extends CI_Controller {
 		$this->load->model('m_novel');
 		$this->load->model('m_komen');
 
-		$this->load->helper(array('url'));
-
 		$this->data['config'] = $this->m_config->ambil('config',1)->row();
 		$this->data['profil'] = $this->m_profil->ambil('profil',1)->row();
 		$this->data['header'] = $this->m_header->ambil('header',1)->row();
@@ -48,20 +46,19 @@ class Main extends CI_Controller {
 
 	function novel()
 	{
-		$data                = $this->data;
-		$data['novel']       = $this->m_novel->tampil_dataBaru('novel')->result();
-		$data['menu']        = "novel";
-
-		$this->load->database();
-		$jumlah_data = $this->m_novel->tampil_dataBaru('novel')->num_rows();
+		$data                 = $this->data;
+		// $data['novel']        = $this->m_novel->tampil_dataBaru('novel')->result();
+		$data['menu']         = "novel";
+		
+		$jumlah_data          = $this->m_novel->tampil_dataBaru('novel')->num_rows();
 		$this->load->library('pagination'); 
-		$config['base_url'] = base_url('main/novel');
+		$config['base_url']   = base_url('main/novel');
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 1;
-		$from = $this->uri->segment(2);
+		$config['per_page']   = 2;
 		$this->pagination->initialize($config);		
-		$data['user'] = $this->m_novel->data($config['per_page'],$from);
-		$data['uri'] = $from;
+		$from                 = $this->uri->segment(2);
+		$data['novel']        = $this->m_novel->data($config['per_page'],$from);
+		$data['uri']          = $from;
 
 		$data['pagination'] = $this->pagination->create_links();
 
@@ -280,6 +277,32 @@ class Main extends CI_Controller {
 		$data            = $this->data;
 		$data['menu']    = "contact_us";
 		echo $this->blade->nggambar('main.contact_us',$data);
+	}
+
+	function proses_contact_us()
+	{
+		$nama  = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$pesan = $this->input->post('pesan');
+
+		$data = array(
+			'nama'  => $nama,
+			'email' => $email,
+			'pesan' => $pesan,
+		);
+
+		$this->m_pesan->input_data($data,'pesan');
+
+		$arrayResponse = array('code' => 'Success','body' => '<div class="col-md-12">
+            <div class="coloralert" style="background-color: green;">
+            <i class="fa fa-check"></i>
+            <p>Messages succesfully sent...!</p>
+            </div>
+            </div>', 
+        );
+
+		echo json_encode($arrayResponse);
+		return;
 	}
 
 	public function profil()

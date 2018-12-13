@@ -11,6 +11,7 @@ class M_novel extends CI_Model {
 	}
 
 	function data($number,$offset){
+		$this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
 		return $query = $this->db->get('novel',$number,$offset)->result();		
 	}
 

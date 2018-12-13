@@ -5,6 +5,35 @@ MTLINDO -> Contact Us
 @section('content')
 
 <script src="{{base_url()}}assets/template/js/jquery.js"></script>
+<script>
+$(document).ready(function() {
+  $('#form-contact').submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: $("#form-contact").attr('action'), //nama action script php sobat
+      data: $(this).serialize(),
+      dataType:'json',
+      success: function(data)
+      {
+        if (data.code === 'Success') {
+          $('#alert-contact').html(data.body);
+          $("#name").val('');
+          $("#email").val('');
+          $("#pesan").val('');
+          // alert('sukses');
+          // window.location = "{{base_url('main')}}";
+        }
+        else {
+          
+          $('#alert-contact').html(data.body);
+          // alert('Invalid Credentials');
+        }
+      }
+   });
+ });
+});
+</script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
@@ -32,12 +61,14 @@ MTLINDO -> Contact Us
           <div class="post-entry">
 
           <h2>Contact Us</h2><br>
+
+          <div id="alert-contact">
+          </div>
          <!-- Button trigger modal -->
           <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Launch demo modal
           </button> -->
         <!-- Modal -->
-          <form name="form" id="form" action="{{base_url('')}}" method="post" class="comment-form">
             <div class="row">
             <div id="alert">
               <!-- <div class="col-md-12">
@@ -48,20 +79,26 @@ MTLINDO -> Contact Us
                 </div>
               </div> -->
             </div>
+          <form name="form" id="form-contact" action="{{base_url('main/proses_contact_us')}}" method="post" class="comment-form">
+            
+            <div class="col-md-6">
+              <span>Name </span>
+              <input id="name" type="text" name="nama" required>
+            </div>
+
             <div class="col-md-6">
               <span>Email </span>
-              <span id="emailalert"></span>
               <input id="email" type="email" name="email" required>
             </div>
 
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <span>Phone </span>
               <input id="phone" type="number" minlength="11" maxlength="13" name="phone" required>
-            </div>
+            </div> -->
 
             <div class="col-md-12">
               <span>Message </span>
-              <textarea required></textarea>
+              <textarea name="pesan" id="pesan" required></textarea>
             </div>
 
             <div class="col-md-12"><input type="submit" value="send" class="submit-button"/></div>

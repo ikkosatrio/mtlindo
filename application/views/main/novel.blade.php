@@ -3,54 +3,7 @@
 MTLINDO -> Novel
 @endsection
 @section('content')
-    <div class="slider">
-        <div class="row">
-            <div class="col-sm-12 col-md-8 slider-left">
-                <div class="slider-item">
-                <figure class="effect-milo">
-                    <img src="{{base_url()}}assets/template/images/demo/1200x800-20.jpg" alt="img11"/>
-                    <figcaption>
-                        <h2>Wine Packaging Inspired by <span>the Simpsons and Piet Mondrian</span> Goes Against the Packaging Norms</h2>
-                        <p>Jodi started making these beautiful book sculptures when she got hooked from folding one of the pages of a used book from a second-hand book shop.</p>
-                        <a href="post.html">View more</a>
-                    </figcaption>
-                </figure>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 slider-right">
-                <div class="row">
-                    <div class="col-xs-12">
 
-                        <div class="slider-item rightside">
-                        <figure class="effect-milo">
-                            <img src="{{base_url()}}assets/template/images/demo/1200x800-14.jpg" alt="img11"/>
-                            <figcaption>
-                                <h2>Make Stories Come Alive with <span>Jodi Harvey-Brown</span> Book Sculpture</h2>
-                                <p>Maybe it's wine or maybe not but one thing is for sure, combining Homer and ...</p>
-                                <a href="post.html">View more</a>
-                            </figcaption>
-                        </figure>
-                        </div>
-
-                    </div>
-                    <div class="col-xs-12">
-
-                        <div class="slider-item rightside">
-                        <figure class="effect-milo">
-                            <img src="{{base_url()}}assets/template/images/demo/1200x800-21.jpg" alt="img11"/>
-                            <figcaption>
-                                <h2>You! Be Inspired! - The Enchanting Art of Meg Hunt</h2>
-                                <p>Milo went to the woods. He took a fun ride and never came back.</p>
-                                <a href="post.html">View more</a>
-                            </figcaption>
-                        </figure>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
   <div class="content">
 
   <div class="row">
@@ -65,13 +18,13 @@ MTLINDO -> Novel
 
    <div class="row">
     <?php $no = $uri + 1; ?>
-    @foreach ($user as $n)
+    @foreach ($novel as $n)
         <div class="col-md-6">
             <!-- grid list item -->
             <div class="grid-post">
                 <div class="grid-post-container">
                    <a href="{{base_url('main/detail_novel/').$n->id_novel}}"><img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; height: 450px;" alt=""></a>
-                   <div class="post-cats"><a href="#">Kategori</a></div>
+                   <div class="post-cats"><a href="#">{{$n->nama}}</a></div>
                 </div>
 
                 <div class="post-meta">
