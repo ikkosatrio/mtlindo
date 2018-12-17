@@ -162,7 +162,7 @@ inspired from http://codepen.io/Rowno/pen/Afykb
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategori <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                         @foreach($kategoris as $key => $result)
-                            <li><a href="{{base_url('main/novel/kategori/?kategori='.$result->id_kategori)}}">{{$result->nama}}</a></li>
+                            <li><a href="{{base_url('main/novel/?kategori='.$result->id_kategori)}}">{{$result->nama}}</a></li>
                         @endforeach
                     </ul>
                 </li>

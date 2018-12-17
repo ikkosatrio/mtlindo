@@ -53,6 +53,13 @@ class Main extends CI_Controller {
         $data['novelBaru'] = $this->m_novel->tampil_dataBaru('novel')->result();
 		// $data['novel']        = $this->m_novel->tampil_dataBaru('novel')->result();
 		$data['menu']         = "novel";
+
+		$where = array();
+
+		if (isset($_REQUEST['kategori'])){
+		    $where['novel.id_kategori'] = $_REQUEST['kategori'];
+        }
+
         $per_page   = 2;
         $offset = 0;
         if($page){
@@ -60,8 +67,8 @@ class Main extends CI_Controller {
         }else{
             $offset = $per_page;
         }
-        $data['novel']				=  $this->m_novel->data($offset,$page)->result();
-        $alldata				=  $this->m_novel->tampil_data('novel')->result();
+        $data['novel']				=  $this->m_novel->data($offset,$page,$where)->result();
+        $alldata				=  $this->m_novel->tampil_data2('novel',$where)->result();
 
         $jumlah_data = count($alldata);
 
