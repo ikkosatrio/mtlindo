@@ -18,7 +18,6 @@ class Cak_Pagination {
         # iki nggolek onok pirang page
         # misal onok
         $total_rows = ceil($number_row/$per_page);
-
         $config = [
             'base_url' => $url,
             'total_rows' => $total_rows,
@@ -47,7 +46,12 @@ class Cak_Pagination {
             'next_tag_close' => '</li>'
         ];
 
+
+
         $this->ci->pagination->initialize($config);
+
+//        dd( $this->ci->pagination->create_links());
+
         return $this->ci->pagination->create_links();
 
     }

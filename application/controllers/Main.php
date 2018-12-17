@@ -53,31 +53,26 @@ class Main extends CI_Controller {
         $data['novelBaru'] = $this->m_novel->tampil_dataBaru('novel')->result();
 		// $data['novel']        = $this->m_novel->tampil_dataBaru('novel')->result();
 		$data['menu']         = "novel";
-		
-		$jumlah_data          = $this->m_novel->tampil_dataBaru('novel')->num_rows();
-//		$this->load->library('pagination');
-//		$config['base_url']   = base_url('main/novel');
-//		$config['total_rows'] = $jumlah_data;
-		$per_page   = 2;
-//		$this->pagination->initialize($config);
-//		$from                 = $this->uri->segment(2);
+        $per_page   = 2;
+        $offset = 0;
+        if($page){
+            $offset = $page*$per_page;
+        }else{
+            $offset = $per_page;
+        }
+        $data['novel']				=  $this->m_novel->data($offset,$page)->result();
+        $alldata				=  $this->m_novel->tampil_data('novel')->result();
+
+        $jumlah_data = count($alldata);
 
 
         $paginate					= new Cak_Pagination();
-        $data['pagination'] 		= $paginate->paginate(base_url('main/novel/'),$page,$per_page,count($jumlah_data),$page);
+        $data['pagination'] 		= $paginate->paginate(base_url('main/novel/'),$page,$per_page,$jumlah_data,$page);
 
-//        echo $jumlah_data;
-//        die();
-        $data['novel']				=  $this->m_novel->data($page,$page*$per_page);//ArticleModel::where('id_category',$id)->take(5)->skip($page*5)->desc()->get();
 
-//		$data['novel']        = $this->m_novel->data($config['per_page'],$from);
-//		$data['uri']          = $from;
-//
-//		$data['pagination'] = $this->pagination->create_links();
-        // echo "<pre>";
-        // var_dump($data);
 
-		echo $this->blade->nggambar('main.novel',$data);
+
+        echo $this->blade->nggambar('main.novel',$data);
 	}
 
 	function regis()

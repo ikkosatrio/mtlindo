@@ -11,8 +11,10 @@ class M_novel extends CI_Model {
 	}
 
 	function data($number,$offset){
+        $this->db->from('novel');
 		$this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
-		return $query = $this->db->get('novel',$number,$offset)->result();		
+        $this->db->limit($number, $offset);
+        return $query = $this->db->get();
 	}
 
 	function tampil_data($table){
@@ -23,6 +25,15 @@ class M_novel extends CI_Model {
 	}
 
     function tampil_dataBaru($table,$limit = 5){
+        $this->db->from($table);
+        $this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
+        $this->db->order_by('novel.created_at','desc');
+        $this->db->limit($limit);
+        return $query = $this->db->get();
+        // return $this->db->get($table);
+    }
+
+    function tampil_data_page($table,$limit = 10){
         $this->db->from($table);
         $this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
         $this->db->order_by('novel.created_at','desc');

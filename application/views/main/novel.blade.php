@@ -8,7 +8,7 @@ MTLINDO -> Novel
 
   <div class="row">
 
-  <div class="col-md-8 main-content" >
+    <div class="col-md-8 main-content" >
 
   <!-- Main (left side) -->
 
@@ -44,7 +44,6 @@ MTLINDO -> Novel
         <nav class="pagination-2">
             <ul class="text-center">
                 @if($pagination!=="")
-                    asdasdasd
                     <ul>
                         {!! $pagination !!}
                     </ul>
@@ -52,12 +51,12 @@ MTLINDO -> Novel
             </ul>
         </nav>
     </div>
-    {!!$pagination!!}
+    {{--{!!$pagination!!}--}}
   </section>
   <!-- end Grid Post style -->
 
  </div>
- <div class="col-md-4">
+    <div class="col-md-4">
 
 <!-- SIDE BAR -->
      <div id="sidebar">
@@ -94,25 +93,5 @@ MTLINDO -> Novel
   </div><!-- end row -->
 
   </div><!-- end content -->
-
-  <!-- instagram widget in main page -->
-  <h4 class="main-heading"><span>Instagram</span></h4>
-  <div class="widget-insta">
-    <div id="insta-owl" class="owl-carousel owl-theme">
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-2.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-1.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-3.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-6.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-4.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-5.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-3.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/300x300-6.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-5.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-3.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-2.jpg" alt=""></a></div>
-      <div class="item"><a href="#"><img src="{{base_url()}}assets/template/images/demo/article-298x298-1.jpg" alt=""></a></div>
-    </div>
-  </div>
-  <!-- end instagram widget in main page -->
 
 @endsection
