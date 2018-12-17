@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2018 at 06:00 PM
+-- Generation Time: Dec 17, 2018 at 01:00 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -107,8 +107,8 @@ CREATE TABLE `chapter` (
 --
 
 INSERT INTO `chapter` (`id_chapter`, `id_novel`, `content`, `judul`, `view`, `created_at`, `updated_at`) VALUES
-(1, 1, '0', 'ads', NULL, '2018-10-27 08:17:34', '2018-11-01 12:56:36'),
-(2, 1, '<p>asdasd</', 'asdasd', NULL, '2018-11-01 12:32:09', '2018-11-01 12:56:40'),
+(1, 1, 'test jon', 'chapter 1', NULL, '2018-10-27 08:17:34', '2018-12-17 07:26:56'),
+(2, 1, '<p>asdasd</', 'chapter 2', NULL, '2018-11-01 12:32:09', '2018-12-17 07:26:42'),
 (3, 2, '<p>sadsdfsd', 'dsdfsd', NULL, '2018-11-01 13:05:55', '2018-11-01 13:05:55');
 
 -- --------------------------------------------------------
@@ -130,15 +130,16 @@ CREATE TABLE `config` (
   `logo` longtext,
   `meta_deskripsi` text NOT NULL,
   `basic` int(11) DEFAULT NULL,
-  `meta_keyword` text NOT NULL
+  `meta_keyword` text NOT NULL,
+  `font_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `config`
 --
 
-INSERT INTO `config` (`id`, `name`, `email`, `phone`, `address`, `description`, `icon`, `instagram`, `facebook`, `logo`, `meta_deskripsi`, `basic`, `meta_keyword`) VALUES
-(1, 'MTLINDO', 'admin@mtlindo.com', '083849940637', 'Machine Translate Indonesia', 'Ketapangkuning adalah sebuah desa di wilayah Kecamatan Ngusikan, Kabupaten Jombang, Provinsi Jawa Timur.<br>', 'icon2.png', 'Instagram Machine Translate Indonesia', 'Facebook Machine Translate Indonesia', 'logo5.png', '																								Kelurahan / Desa Ketapang Kuning Kecamatan Ngusikan Kabupaten / Kota Kab. Jombang Provinsi Jawa Timur Kode Pos 61454			\r\n											\r\n											', 5, '																								Nomor kode pos di Propinsi Jawa Timur, Kota Jombang, Kecamatan Ngusikan, Ketapang Kuning,kab. jombang							\r\n											\r\n											\r\n											');
+INSERT INTO `config` (`id`, `name`, `email`, `phone`, `address`, `description`, `icon`, `instagram`, `facebook`, `logo`, `meta_deskripsi`, `basic`, `meta_keyword`, `font_name`) VALUES
+(1, 'MTLINDO', 'admin@mtlindo.com', '083849940637', 'Machine Translate Indonesia', 'Ketapangkuning adalah sebuah desa di wilayah Kecamatan Ngusikan, Kabupaten Jombang, Provinsi Jawa Timur.<br>', 'icon2.png', 'Instagram Machine Translate Indonesia', 'Facebook Machine Translate Indonesia', 'logo5.png', '																								Kelurahan / Desa Ketapang Kuning Kecamatan Ngusikan Kabupaten / Kota Kab. Jombang Provinsi Jawa Timur Kode Pos 61454			\r\n											\r\n											', 5, '																								Nomor kode pos di Propinsi Jawa Timur, Kota Jombang, Kecamatan Ngusikan, Ketapang Kuning,kab. jombang							\r\n											\r\n											\r\n											', 'cursive');
 
 -- --------------------------------------------------------
 
@@ -294,10 +295,10 @@ CREATE TABLE `novel` (
 --
 
 INSERT INTO `novel` (`id_novel`, `created_at`, `updated_at`, `deskripsi`, `cover`, `status`, `judul`, `id_kategori`, `view`) VALUES
-(1, '2018-10-25 13:32:10', '2018-12-12 14:18:19', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543296579sampul3.jpg', 0, 'Novel 1', 2, 0),
+(1, '2018-10-25 13:32:10', '2018-12-17 11:46:16', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543296579sampul3.jpg', 0, 'Novel 1', 2, 47),
 (2, '2018-11-01 12:31:14', '2018-12-12 14:18:31', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543296619novel1.jpg', 0, 'Novel 2', 1, 1),
 (3, '2018-11-27 13:37:10', '2018-12-12 14:18:53', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543325830sampul2.jpg', 0, 'Novel 3', 1, 4),
-(4, '2018-11-27 13:37:53', '2018-12-12 14:18:42', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543325873sampul4.gif', 0, 'Novel 4', 1, 2);
+(4, '2018-11-27 13:37:53', '2018-12-17 07:30:08', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '1543325873sampul4.gif', 0, 'Novel 4', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -341,7 +342,10 @@ CREATE TABLE `pesan` (
 --
 
 INSERT INTO `pesan` (`id_pesan`, `nama`, `email`, `phone`, `status`, `pesan`, `created_at`) VALUES
-(2, 'sdf', 'sdf', NULL, '0', 'sdf', '2017-07-15 18:00:21');
+(2, 'sdf', 'sdf', NULL, '0', 'sdf', '2017-07-15 18:00:21'),
+(3, 'Joni', 'joni@gmail.com', NULL, '0', 'Testing contact us', '2018-12-13 13:11:44'),
+(4, 'paijo', 'paijo@gmail.com', NULL, '0', 'testing jon', '2018-12-13 13:14:24'),
+(5, 'Sabyan', 'sabyan@gmail.com', NULL, '0', 'test lagi men', '2018-12-13 13:15:04');
 
 -- --------------------------------------------------------
 
@@ -614,7 +618,7 @@ ALTER TABLE `pejabat`
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `potensi`
 --
