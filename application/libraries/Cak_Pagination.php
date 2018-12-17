@@ -30,7 +30,7 @@ class Cak_Pagination {
             // 'next_link' => '<span class="glyphicon glyphicon-chevron-right"></span>',
             // 'prev_link' => '<span class="glyphicon glyphicon-chevron-left"></span>',
             'cur_page'	=> $page,
-            'cur_tag_open' => '<li><a href="#" class="active">',
+            'cur_tag_open' => '<li class="active"><a href="#" class="active">',
             'cur_tag_close' => '</li>',
             'num_tag_open' => '<li>',
             'num_tag_close' => '</li>',

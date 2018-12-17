@@ -15,43 +15,41 @@ MTLINDO -> Novel
   <!-- Grid Post style -->
   <section>
   <!-- <h4 class="main-heading"><span>Grid style</span></h4> -->
+      <div class="row">
+          @foreach ($novel as $n)
+              <div class="col-md-6">
+                  <!-- grid list item -->
+                  <div class="grid-post">
+                      <div class="grid-post-container">
+                          <a href="{{base_url('main/detail_novel/').$n->id_novel}}"><img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; height: 450px;" alt=""></a>
+                          <div class="post-cats"><a href="#">{{$n->nama}}</a></div>
+                      </div>
 
-   <div class="row">
-    @foreach ($novel as $n)
-        <div class="col-md-6">
-            <!-- grid list item -->
-            <div class="grid-post">
-                <div class="grid-post-container">
-                   <a href="{{base_url('main/detail_novel/').$n->id_novel}}"><img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; height: 450px;" alt=""></a>
-                   <div class="post-cats"><a href="#">{{$n->nama}}</a></div>
-                </div>
+                      <div class="post-meta">
+                          <span>{{date("d-M-Y", strtotime($n->created_at))}}</span>
+                          <!-- <span>by:</span> -->
+                      </div>
 
-                <div class="post-meta">
-                    <span>{{date("d-M-Y", strtotime($n->created_at))}}</span>
-                    <!-- <span>by:</span> -->
-                </div>
+                      <div class="grid-post-body">
+                          <h3 class="title" align="center"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">{{$n->judul}}</a></h3>
+                          <p align="justify" style="font-family: {{$config->font_name}};">{!! read_more($n->deskripsi,75) !!}</p>
+                          <p><a href="{{base_url('main/detail_novel/').$n->id_novel}}" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
+                      </div>
+                  </div>
+                  <!-- end grid list item -->
 
-                <div class="grid-post-body">
-                    <h3 class="title" align="center"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">{{$n->judul}}</a></h3>
-                    <p align="justify" style="font-family: {{$config->font_name}};">{!! read_more($n->deskripsi,75) !!}</p>
-                    <p><a href="{{base_url('main/detail_novel/').$n->id_novel}}" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
-                </div>
-            </div>
-            <!-- end grid list item -->
-
-        </div>
-    @endforeach
-        <nav class="pagination-2">
-            <ul class="text-center">
-                @if($pagination!=="")
-                    <ul>
-                        {!! $pagination !!}
-                    </ul>
-                @endif
-            </ul>
-        </nav>
-    </div>
-    {{--{!!$pagination!!}--}}
+              </div>
+          @endforeach
+          <div class="text-center">
+              <nav>
+                  <ul class="pagination pagination-centered">
+                      @if($pagination!=="")
+                          {!! $pagination !!}
+                      @endif
+                  </ul>
+              </nav>
+          </div>
+      </div>
   </section>
   <!-- end Grid Post style -->
 

@@ -162,7 +162,7 @@ inspired from http://codepen.io/Rowno/pen/Afykb
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategori <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                         @foreach($kategoris as $key => $result)
-                            <li><a href="{{base_url('main/novel/?kategori='.$result->id_kategori)}}">{{$result->nama}}</a></li>
+                            <li><a href="{{base_url('main')}}">{{$result->nama}}</a></li>
                         @endforeach
                     </ul>
                 </li>
@@ -175,9 +175,9 @@ inspired from http://codepen.io/Rowno/pen/Afykb
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-search"></i></a>
                   <div class="dropdown-menu searchbox" role="menu">
-                    <form id="{{base_url('main/novel')}}" method="get" class="navbar-form search" role="search">
+                    <form id="search" class="navbar-form search" role="search">
                         <div class="input-group">
-                            <input type="search" class="form-control" name="keyword" placeholder="Type to search">
+                            <input type="search" class="form-control" placeholder="Type to search">
                             <span class="input-group-btn"><button type="submit" class="btn btn-default btn-submit"><i class="fa fa-angle-right"></i></button></span>
                         </div>
                     </form>
