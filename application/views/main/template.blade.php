@@ -17,7 +17,11 @@
     <!-- only for demo -->
     <link href="{{base_url()}}assets/template/css/demo-settings.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2.1.2/dist/flickity.min.css">
-
+    <style>
+      p {
+        style="font-family: {{$config->font_name}};"
+      }
+    </style>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

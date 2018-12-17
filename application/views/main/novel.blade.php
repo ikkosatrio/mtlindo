@@ -33,7 +33,7 @@ MTLINDO -> Novel
 
                 <div class="grid-post-body">
                     <h3 class="title" align="center"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">{{$n->judul}}</a></h3>
-                    <p align="justify">{!! read_more($n->deskripsi,75) !!}</p>
+                    <p align="justify" style="font-family: {{$config->font_name}};">{!! read_more($n->deskripsi,75) !!}</p>
                     <p><a href="{{base_url('main/detail_novel/').$n->id_novel}}" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
                 </div>
             </div>
