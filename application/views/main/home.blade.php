@@ -39,38 +39,38 @@
                 <!-- Main (left side) -->
 
                 <!-- Grid Post style -->
-                <section>
-                    <!-- <h4 class="main-heading"><span>Grid style</span></h4> -->
+                {{--<section>--}}
+                    {{--<!-- <h4 class="main-heading"><span>Grid style</span></h4> -->--}}
 
-                    <div class="row">
-                        @foreach ($novel as $n)
-                            <div class="col-md-6">
+                    {{--<div class="row">--}}
+                        {{--@foreach ($novel as $n)--}}
+                            {{--<div class="col-md-6">--}}
 
-                                <!-- grid list item -->
-                                <div class="grid-post">
-                                    <div class="grid-post-container">
-                                        <a href="{{base_url('main/detail_novel/').$n->id_novel}}"><img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; height: 450px;" alt=""></a>
-                                        <div class="post-cats"><a href="#">Kategori-{{$n->id_kategori}}</a></div>
-                                    </div>
+                                {{--<!-- grid list item -->--}}
+                                {{--<div class="grid-post">--}}
+                                    {{--<div class="grid-post-container">--}}
+                                        {{--<a href="{{base_url('main/detail_novel/').$n->id_novel}}"><img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; height: 450px;" alt=""></a>--}}
+                                        {{--<div class="post-cats"><a href="#">Kategori-{{$n->id_kategori}}</a></div>--}}
+                                    {{--</div>--}}
 
-                                    <div class="post-meta">
-                                        <span>{{date("d-M-Y", strtotime($n->created_at))}}</span>
-                                        <!-- <span>by:</span> -->
-                                    </div>
+                                    {{--<div class="post-meta">--}}
+                                        {{--<span>{{date("d-M-Y", strtotime($n->created_at))}}</span>--}}
+                                        {{--<!-- <span>by:</span> -->--}}
+                                    {{--</div>--}}
 
-                                    <div class="grid-post-body">
-                                        <h3 class="title" align="center"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">{{$n->judul}}</a></h3>
-                                        <p>{!! $n->deskripsi !!}</p>
-                                        <p><a href="{{base_url('main/detail_novel/').$n->id_novel}}" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
-                                    </div>
-                                </div>
-                                <!-- end grid list item -->
+                                    {{--<div class="grid-post-body">--}}
+                                        {{--<h3 class="title" align="center"><a href="{{base_url('main/detail_novel/').$n->id_novel}}">{{$n->judul}}</a></h3>--}}
+                                        {{--<p>{!! $n->deskripsi !!}</p>--}}
+                                        {{--<p><a href="{{base_url('main/detail_novel/').$n->id_novel}}" class="more-button"><span class="read-more-button">READ MORE</span></a></p>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<!-- end grid list item -->--}}
 
-                            </div>
-                        @endforeach
-                    </div>
+                            {{--</div>--}}
+                        {{--@endforeach--}}
+                    {{--</div>--}}
 
-                </section>
+                {{--</section>--}}
                 <!-- end Grid Post style -->
 
                 <!-- List Post style -->
@@ -88,8 +88,8 @@
                                 <h2><a href="post.html">Unbelievable Anamorphic Sculptures by Jonty Hurwitz</a></h2>
 
                                 <div class="post-meta">
-                                    <span class="post-meta-publ-date">February 23, 2015</span>
-                                    <span class="post-meta-author">by <a href="#">Different Themes</a></span>
+                                    <span class="post-meta-publ-date">{{tgl_indo($n->created_at)}}</span>
+                                    <span class="post-meta-author">by <a href="#">Admin</a></span>
                                     <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
                                 </div>
 
@@ -123,7 +123,7 @@
                                     </div>
                                     <div class="widget-post-entry">
                                         <h3 class="widget-post-title"><a href="post.html">{{$result->judul}}</a></h3>
-                                        <div class="widget-post-meta"><i class="fa fa-clock-o"></i>{{$result->created_at}}
+                                        <div class="widget-post-meta"><i class="fa fa-clock-o"></i>{{tgl_indo($result->created_at)}}
                                             {{--<span class="widget-post-comments"><i class="fa fa-comments"></i>15</span>--}}
                                         </div>
                                     </div>

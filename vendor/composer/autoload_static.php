@@ -119,6 +119,7 @@ class ComposerStaticInit67b64059bbcfcf6f20f2d3a98ae9219f
     );
 
     public static $classMap = array (
+        'Cak_pagination' => __DIR__ . '/../..' . '/application/libraries/Cak    _pagination.php',
         'EasyPeasyICS' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
         'PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
         'PHPMailerOAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmaileroauth.php',
