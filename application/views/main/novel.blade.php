@@ -17,7 +17,6 @@ MTLINDO -> Novel
   <!-- <h4 class="main-heading"><span>Grid style</span></h4> -->
 
    <div class="row">
-    <?php $no = $uri + 1; ?>
     @foreach ($novel as $n)
         <div class="col-md-6">
             <!-- grid list item -->
@@ -40,9 +39,18 @@ MTLINDO -> Novel
             </div>
             <!-- end grid list item -->
 
-            <?php $no++ ?>
         </div>
     @endforeach
+        <nav class="pagination-2">
+            <ul class="text-center">
+                @if($pagination!=="")
+                    asdasdasd
+                    <ul>
+                        {!! $pagination !!}
+                    </ul>
+                @endif
+            </ul>
+        </nav>
     </div>
     {!!$pagination!!}
   </section>
