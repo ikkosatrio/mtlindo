@@ -75,15 +75,25 @@ Home -> Novel
         <div class="post-meta"><span class="post-category"><a href="#">kategori {{$n->id_kategori}}</a></span></div>
         <div class="divider"></div>
           <h1><a href="portfolio-item.html">{{$n->judul}}</a></h1>
-        <div class="post-meta">Posted on <span class="post-time">{{date("d-M-Y", strtotime($n->created_at))}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
-        <p align="justify">{!! $n->deskripsi !!}</p>
-        <div class="tag-cloud">
-            <a href="#">Fashion</a>
-            <a href="#">Design</a>
-            <a href="#">Architecture</a>
-            <a href="#">Gadgets</a>
-            <a href="#">Cars</a>
-            <a href="#">Computers</a>
+        <div class="post-meta">Posted on <span class="post-time">{{tgl_indo($n->created_at)}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
+            <p align="justify" style="font-family: {{$config->font_name}};">{!! read_more($n->deskripsi,7000000) !!}</p>
+        
+        <h3>
+            <span class="glyphicon glyphicon-download-alt" aria-hidden=true></span>
+            Chapters
+        </h3>
+        <div class="accordion">
+            @foreach ($chap as $c)
+            <div>
+                <a href="">
+                    {{$c->judul}}
+                </a>
+                <div>
+            <a href="base_url()" id="">test</a>
+                    {{read_more($c->content,200)}}
+                </div>
+            </div>
+            @endforeach
         </div>
 
         </div>

@@ -23,6 +23,7 @@ class Main extends CI_Controller {
 		$this->load->model('m_login');
 		$this->load->model('m_novel');
 		$this->load->model('m_komen');
+		$this->load->model('m_chapter');
 
 		$this->data['config'] = $this->m_config->ambil('config',1)->row();
 		$this->data['profil'] = $this->m_profil->ambil('profil',1)->row();
@@ -70,8 +71,8 @@ class Main extends CI_Controller {
 //		$data['uri']          = $from;
 //
 //		$data['pagination'] = $this->pagination->create_links();
-        echo "<pre>";
-        var_dump($data);
+        // echo "<pre>";
+        // var_dump($data);
 
 		echo $this->blade->nggambar('main.novel',$data);
 	}
@@ -173,29 +174,6 @@ class Main extends CI_Controller {
 		redirect('main','refresh');
 	}
 
-	private function upload($dir,$name ='userfile',$filename=null){
-		$config['upload_path']      = $dir;
-        $config['allowed_types']    = 'gif|jpg|png|jpeg';
-        $config['max_size']         = 8000;
-        $config['encrypt_name'] 	= FALSE;
-        $config['file_name'] 		= $filename;
-
-        $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload($name))
-        {
-        		$data['auth'] 	= false;
-                $data['msg'] 	= $this->upload->display_errors();
-                return $data;
-        }
-        else
-        {
-        		$data['auth']	= true;
-        		$data['msg']	= $this->upload->data();
-        		return $data;
-        }
-	}
-
 	function auth($status)
 	{
 		$data = $this->data;
@@ -258,6 +236,7 @@ class Main extends CI_Controller {
 		$where = array('id_novel' => $id);
 		$data['n']     = $this->m_novel->detail($where,'novel')->row();
 		$viewers = $data['n']->view;
+		$data['chap']  = $this->m_chapter->detail($where,'chapter')->result();
 		// var_dump($viewers);
 		$view = array('view' => $viewers+1);
 		$this->m_member->update_data($where,$view,'novel');
@@ -455,8 +434,83 @@ class Main extends CI_Controller {
 				exit('opps');
 				break;
 		}
-		
 	}
+
+	private function upload($dir,$name ='userfile',$filename=null){
+		$config['upload_path']      = $dir;
+        $config['allowed_types']    = 'gif|jpg|png|jpeg';
+        $config['max_size']         = 8000;
+        $config['encrypt_name'] 	= FALSE;
+        $config['file_name'] 		= $filename;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload($name))
+        {
+        		$data['auth'] 	= false;
+                $data['msg'] 	= $this->upload->display_errors();
+                return $data;
+        }
+        else
+        {
+        		$data['auth']	= true;
+        		$data['msg']	= $this->upload->data();
+        		return $data;
+        }
+	}
+
+	private function saveWord($filename,$title,$content){
+//        require_once 'bootstrap.php';
+
+        // Creating the new document...
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+
+        /* Note: any element you append to a document must reside inside of a Section. */
+
+        // Adding an empty Section to the document...
+        $section = $phpWord->addSection();
+        // Adding Text element to the Section having font styled by default...
+        $section->addText($title);
+
+        /*
+         * Note: it's possible to customize font style of the Text element you add in three ways:
+         * - inline;
+         * - using named font style (new font style object will be implicitly created);
+         * - using explicitly created font style object.
+         */
+
+        // Adding Text element with font customized inline...
+        $section->addText(
+            $content,
+            array('name' => 'Tahoma', 'size' => 10)
+        );
+
+        // Adding Text element with font customized using named font style...
+        $fontStyleName = 'oneUserDefinedStyle';
+        $phpWord->addFontStyle(
+            $fontStyleName,
+            array('name' => 'Tahoma', 'size' => 10, 'color' => '1B2232', 'bold' => true)
+        );
+
+
+        // Saving the document as OOXML file...
+
+        $filename = $filename.'.docx';
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+        $objWriter->save($filename);
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($filename));
+        flush();
+        readfile($filename);
+        unlink($filename);
+    }
 
 }
 
