@@ -60,70 +60,35 @@ MTLINDO -> Novel
  <div class="col-md-4">
 
 <!-- SIDE BAR -->
-<div id="sidebar">
-             <!-- sidebar-module latest posts -->
-            <div class="sidebar-module">
+     <div id="sidebar">
+         <!-- sidebar-module latest posts -->
+         <div class="sidebar-module">
 
 
-                <div class="sidebar-content">
+             <div class="sidebar-content">
 
-                <h4 class="sidebar-heading"><span>Latest</span></h4>
+                 <h4 class="sidebar-heading"><span>Latest</span></h4>
 
-                    <div class="widget-post" id="latest_posts">
-                        <div class="widget-post-circle">
-                            1
-                        </div>
-                        <div class="widget-post-entry">
-                            <h3 class="widget-post-title"><a href="post.html">Watch Top Brands and Agencies Live-Tweet</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i>15. MARCH 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>15</span></div>
-                        </div>
-                    </div>
+                 @foreach($novelBaru as $key => $result)
+                     <div class="widget-post" id="latest_posts">
+                         <div class="widget-post-circle">
+                             {{$key+1}}
+                         </div>
+                         <div class="widget-post-entry">
+                             <h3 class="widget-post-title"><a href="post.html">{{$result->judul}}</a></h3>
+                             <div class="widget-post-meta"><i class="fa fa-clock-o"></i>{{tgl_indo($result->created_at)}}
+                                 {{--<span class="widget-post-comments"><i class="fa fa-comments"></i>15</span>--}}
+                             </div>
+                         </div>
+                     </div>
+                 @endforeach
 
-                    <div class="widget-post" id="latest_posts">
-                        <div class="widget-post-circle">
-                            2
-                        </div>
-                        <div class="widget-post-entry">
-                            <h3 class="widget-post-title"><a href="post.html">The Influences of Modern Minimalism</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
-                        </div>
-                    </div>
 
-                    <div class="widget-post" id="latest_posts">
-                        <div class="widget-post-circle">
-                            3
-                        </div>
-                        <div class="widget-post-entry">
-                            <h3 class="widget-post-title"><a href="post.html">Coors Light Gets New Look, Miller Lite Targets Biculturals</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>3</span></div>
-                        </div>
-                    </div>
-
-                    <div class="widget-post" id="latest_posts">
-                        <div class="widget-post-circle">
-                            4
-                        </div>
-                        <div class="widget-post-entry">
-                            <h3 class="widget-post-title"><a href="post.html">Facebook to Start Telling Brands Who's Talking About What Topics</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>5</span></div>
-                        </div>
-                    </div>
-
-                    <div class="widget-post" id="latest_posts">
-                        <div class="widget-post-circle">
-                            5
-                        </div>
-                        <div class="widget-post-entry">
-                            <h3 class="widget-post-title"><a href="post.html">Notegraphy, Graphic Design Meet Note-Taking</a></h3>
-                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-- end sidebar-module -->
-  <!-- end SIDE BAR -->
-  </div>
+             </div>
+         </div>
+         <!-- end sidebar-module -->
+         <!-- end SIDE BAR -->
+     </div>
   </div>
 
   </div><!-- end row -->

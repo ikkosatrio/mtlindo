@@ -16,43 +16,61 @@ Home -> Novel
 
     <div class="row">
         <div class="col-md-12">
-
             <!-- post -->
             <div class="row">
                 <article class="blog-post">
-                <div class="blog-post-container">
-                  <img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; max-height: 500px;" alt="">
-                </div>
+                    <div class="blog-post-container">
+                      <img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; max-height: 500px;" alt="">
+                    </div>
 
-                <div class="post-entry">
+                    <div class="post-entry">
+                        <div class="post-meta"><span class="post-category"><a href="#">kategori {{$n->id_kategori}}</a></span></div>
+                        <div class="divider"></div>
+                          <h1><a href="portfolio-item.html">{{$n->judul}}</a></h1>
+                        <div class="post-meta">Posted on <span class="post-time">{{tgl_indo($n->created_at)}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
+                            <p align="justify" style="font-family: {{$config->font_name}};">{!! read_more($n->deskripsi,7000000000000) !!}</p>
 
-                <div class="post-meta"><span class="post-category"><a href="#">kategori {{$n->id_kategori}}</a></span></div>
-                <div class="divider"></div>
-                  <h1><a href="portfolio-item.html">{{$n->judul}}</a></h1>
-                <div class="post-meta">Posted on <span class="post-time">{{tgl_indo($n->created_at)}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
-                    <p align="justify" style="font-family: {{$config->font_name}};">{!! read_more($n->deskripsi,7000000) !!}</p>
+                        
+                        <div class="accordion">
+                            @foreach ($chap as $c)
+                            <div>
+                                <a href="">
+                                    {{$c->judul}}
+                                </a>
+                                <div>
+                                <a href="{{base_url('main/detail_chapter/').$c->id_chapter}}" id="">test</a>
+                                    {{read_more($c->content,200)}}
+                                </div>
 
-                <h3>
-                    <span class="glyphicon glyphicon-download-alt" aria-hidden=true></span>
-                    Chapters
-                </h3>
-                <div class="accordion">
-                    @foreach ($chap as $c)
-                    <div>
-                        <a href="">
-                            {{$c->judul}}
-                        </a>
-                        <div>
-                    <a href="base_url()" id="">test</a>
-                            {{read_more($c->content,200)}}
+                                <div class="post-entry">
+
+                                <div class="post-meta"><span class="post-category"><a href="#">kategori {{$n->id_kategori}}</a></span></div>
+                                <div class="divider"></div>
+                                  <h1><a href="portfolio-item.html">{{$n->judul}}</a></h1>
+                                <div class="post-meta">Posted on <span class="post-time">{{tgl_indo($n->created_at)}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
+                                    <p align="justify" style="font-family: {{$config->font_name}};">{!! read_more($n->deskripsi,7000000) !!}</p>
+
+
+                                <div class="accordion">
+                                    @foreach ($chap as $c)
+                                    <div>
+                                        <a href="">
+                                            {{$c->judul}}
+                                        </a>
+                                        <div>
+                                    <a href="base_url()" id="">test</a>
+                                            {{read_more($c->content,200)}}
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
-                    @endforeach
-                </div>
-
-                </div>
-              </article>
-                    <!-- post end -->
+                </article>
             </div>
             <!--== Comments ==-->
             <div class="row">

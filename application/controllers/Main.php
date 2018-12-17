@@ -50,6 +50,7 @@ class Main extends CI_Controller {
 	function novel($page=0,$id=null)
 	{
 		$data                 = $this->data;
+        $data['novelBaru'] = $this->m_novel->tampil_dataBaru('novel')->result();
 		// $data['novel']        = $this->m_novel->tampil_dataBaru('novel')->result();
 		$data['menu']         = "novel";
 		
@@ -146,6 +147,7 @@ class Main extends CI_Controller {
 		}
 		echo $this->blade->nggambar('main.edit_profil',$data);
 	}
+
 
 	function update_member($id_member,$menu)
 	{
@@ -245,6 +247,15 @@ class Main extends CI_Controller {
 		$data['komen'] = $this->m_komen->tampil_data($where,'komentar')->result();
 		$data['menu']  = "detail_novel";
 		echo $this->blade->nggambar('main.detailnovel',$data);
+	}
+
+	function detail_chapter($id)
+	{
+		$data = $this->data;
+		$where = array('id_novel' => $id);
+		$data['n']     = $this->m_novel->detail($where,'novel')->row();
+		$data['chap']  = $this->m_chapter->detail($where,'chapter')->row();
+		echo $this->blade->nggambar('main.detailchapter',$data);
 	}
 
 	function addcomment()
