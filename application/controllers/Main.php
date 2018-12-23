@@ -254,9 +254,9 @@ class Main extends CI_Controller {
 	function detail_chapter($id)
 	{
 		$data = $this->data;
-		$where = array('id_novel' => $id);
-		$data['n']     = $this->m_novel->detail($where,'novel')->row();
-		$data['chap']  = $this->m_chapter->detail($where,'chapter')->row();
+		$where = array('id_chapter' => $id);
+/*		$data['n']     = $this->m_novel->detail($where,'novel')->row();*/
+		$data['chap']  = $this->m_chapter->detail_join($where,'chapter')->row();
 		echo $this->blade->nggambar('main.detailchapter',$data);
 	}
 

@@ -75,7 +75,7 @@
 
                 <!-- List Post style -->
                 <section>
-                    <h4 class="main-heading"><span>List style</span></h4>
+                    <!-- <h4 class="main-heading"><span>List style</span></h4> -->
 
                     <!-- end list post item -->
                     @foreach ($novel as $n)
