@@ -24,6 +24,11 @@ class M_chapter extends CI_Model {
 		return $this->db->get_where($table,$where);
 	}
 
+	function detail_join($where,$table){	
+/*		$this->db->join('novel', 'novel.id_novel = chapter.id_novel', 'left');*/
+		return $this->db->get_where($table,$where);
+	}
+
 	function update_data($where,$data,$table){
 		$this->db->where($where);
 		$this->db->update($table,$data);

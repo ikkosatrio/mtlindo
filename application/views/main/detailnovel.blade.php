@@ -4,21 +4,13 @@ Home -> Novel
 @endsection
 @section('content')
 
-  <div class="content">
-
-  <div class="row">
-
-  <div class="col-md-12 main-content" >
-
-  <!-- Main (left side) -->
-
-  <section>
+    <div class="content">
 
     <div class="row">
-        <div class="col-md-12">
-            <!-- post -->
-            <div class="row">
-                <article class="blog-post">
+        <div class="col-sm-12">
+
+          <!-- post -->
+          <article class="blog-post">
                     <div class="blog-post-container">
                       <img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; max-height: 500px;" alt="">
                     </div>
@@ -32,49 +24,34 @@ Home -> Novel
 
                         
                         <div class="accordion">
-                            @foreach ($chap as $c)
                             <div>
                                 <a href="">
-                                    {{$c->judul}}
+                                    Chapters
                                 </a>
                                 <div>
-                                <a href="{{base_url('main/detail_chapter/').$c->id_chapter}}" id="">test</a>
-                                    {{read_more($c->content,200)}}
-                                </div>
-
-                                <div class="post-entry">
-
-                                <div class="post-meta"><span class="post-category"><a href="#">kategori {{$n->id_kategori}}</a></span></div>
-                                <div class="divider"></div>
-                                  <h1><a href="portfolio-item.html">{{$n->judul}}</a></h1>
-                                <div class="post-meta">Posted on <span class="post-time">{{tgl_indo($n->created_at)}}</span> by <span class="post-author"><a href="post.html">Paino</a></span></div>
-                                    <p align="justify" style="font-family: {{$config->font_name}};">{!! read_more($n->deskripsi,7000000) !!}</p>
-
-
-                                <div class="accordion">
+                                    @php $no=0; @endphp
                                     @foreach ($chap as $c)
+                                    @php $no++; @endphp
                                     <div>
-                                        <a href="">
-                                            {{$c->judul}}
-                                        </a>
-                                        <div>
-                                    <a href="base_url()" id="">test</a>
-                                            {{read_more($c->content,200)}}
-                                        </div>
-                                    </div>
+                                        <ul class="list-group">
+                                            <a href="{{base_url('main/detail_chapter/').$c->id_chapter}}">
+                                            <li class="list-group-item">{{$no}}. {{$c->judul}}</li>
+                                            </a>
+                                        </ul>
                                     @endforeach
-                                </div>
 
                                 </div>
                             </div>
-                            @endforeach
                         </div>
                     </div>
-                </article>
-            </div>
-            <!--== Comments ==-->
-            <div class="row">
-                <div class="comments">
+
+      </article>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+        <div class="comments">
                 <h4 class="main-heading"><span>Comments</span></h4>
                 @foreach ($komen as $k)
                 <ul class="comment-list">
@@ -114,13 +91,8 @@ Home -> Novel
                 <?php } ?>
                     </div>
                     </div>
-            </div><!-- end col-md-12 -->
         </div>
-    </div><!-- end row -->
-
-   </section>
-
- </div>
+    </div>
 
   </div><!-- end row -->
 
