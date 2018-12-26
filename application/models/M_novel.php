@@ -11,8 +11,16 @@ class M_novel extends CI_Model {
 	}
 
 	function data($offset,$number,$where=array()){
+
+        $keyword = "";
+        if(isset($where['keyword'])){
+            $keyword = $where['keyword'];
+            unset($where['keyword']);
+        }
+
         $this->db->from('novel');
         $this->db->where($where);
+        $this->db->like('judul', $keyword, 'both');
 		$this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
         $this->db->limit($offset, $number);
         return $query = $this->db->get();
@@ -26,8 +34,14 @@ class M_novel extends CI_Model {
 	}
 
     function tampil_data2($table,$where=array()){
+	    $keyword = "";
+	    if(isset($where['keyword'])){
+	        $keyword = $where['keyword'];
+	        unset($where['keyword']);
+        }
         $this->db->from($table);
         $this->db->where($where);
+        $this->db->like('judul', $keyword, 'both');
         $this->db->join('kategori','kategori.id_kategori=novel.id_kategori');
         return $query = $this->db->get();
         // return $this->db->get($table);

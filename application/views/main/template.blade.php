@@ -173,11 +173,11 @@ inspired from http://codepen.io/Rowno/pen/Afykb
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-search"></i></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expandeid="false"><i class="fa fa-search"></i></a>
                   <div class="dropdown-menu searchbox" role="menu">
-                    <form id="search" class="navbar-form search" role="search">
+                    <form id="search" class="navbar-form search" role="search" action="?{{(isset($url['query'])) ? $url['query'] : ''}}">
                         <div class="input-group">
-                            <input type="search" class="form-control" placeholder="Type to search">
+                            <input type="search" class="form-control" name="keyword" placeholder="Type to search">
                             <span class="input-group-btn"><button type="submit" class="btn btn-default btn-submit"><i class="fa fa-angle-right"></i></button></span>
                         </div>
                     </form>

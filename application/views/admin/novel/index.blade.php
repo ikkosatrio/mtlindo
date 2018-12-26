@@ -103,6 +103,11 @@ Dashboard - Administrasi
 													</a>
 												</li>
 												<li>
+													<a href="{{base_url('superuser/downloadchapter/'.$result->id_novel)}}">
+														<i class="fa fa-eye"></i> Download All Chapters
+													</a>
+												</li>
+												<li>
 													<a href="{{base_url('superuser/novel/update/'.$result->id_novel.'/'.seo($result->judul))}}">
 														<i class="fa fa-edit"></i> Ubah Novel
 													</a>

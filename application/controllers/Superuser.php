@@ -755,6 +755,20 @@ class Superuser extends CI_Controller {
 	// --------------------------------- End novel
 
 
+    function downloadchapter($id=0){
+        $where = array(
+            'id_novel' => $id,
+        );
+
+        $chapter = $this->m_chapter->detail($where,'chapter')->result();
+
+        foreach ($chapter as $row){
+            $this->saveWord("Chapter".$row->id_chapter,$row->judul,$row->content);
+        }
+
+        return true;
+    }
+
 	// --------------------------------- Start potensi
 	public function potensi($url=null,$id=null)
 	{

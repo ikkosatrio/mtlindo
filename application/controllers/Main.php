@@ -60,6 +60,12 @@ class Main extends CI_Controller {
 		    $where['novel.id_kategori'] = $_REQUEST['kategori'];
         }
 
+        $data['url'] = parse_url($_SERVER['REQUEST_URI']);
+
+        if(isset($_REQUEST['keyword'])){
+            $where['keyword'] = $_REQUEST['keyword'];
+        }
+
         $per_page   = 2;
         $offset = 0;
         if($page){
