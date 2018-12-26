@@ -82,10 +82,10 @@
                         <div class="list-post">
                             <div class="list-post-container">
                                 <a href="post.html"><img src="{{base_url()}}assets/images/novel/{{$n->cover}}" style="width: 100%; height: auto;" alt=""></a>
-                                <div class="post-cats"><a href="#">Transport</a></div>
+                                <div class="post-cats"><a href="#">{{$n->nama}}</a></div>
                             </div>
                             <div class="list-post-body">
-                                <h2><a href="post.html">Unbelievable Anamorphic Sculptures by Jonty Hurwitz</a></h2>
+                                <h2><a href="post.html">{{$n->judul}}</a></h2>
 
                                 <div class="post-meta">
                                     <span class="post-meta-publ-date">{{tgl_indo($n->created_at)}}</span>
@@ -93,7 +93,7 @@
                                     <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
                                 </div>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
+                                <p>{!!read_more($n->deskripsi,500)!!}</p>
                                 <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
                             </div>
                         </div>
