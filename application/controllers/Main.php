@@ -69,17 +69,21 @@ class Main extends CI_Controller {
         $per_page   = 2;
         $offset = 0;
         if($page){
+            $page+=1;
             $offset = $page*$per_page;
         }else{
             $offset = $per_page;
         }
+
         $data['novel']				=  $this->m_novel->data($offset,$page,$where)->result();
+
         $alldata				=  $this->m_novel->tampil_data2('novel',$where)->result();
 
         $jumlah_data = count($alldata);
 
 
         $paginate					= new Cak_Pagination();
+        $page-=1;
         $data['pagination'] 		= $paginate->paginate(base_url('main/novel/'),$page,$per_page,$jumlah_data,$page);
 
 

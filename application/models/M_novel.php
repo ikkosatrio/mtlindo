@@ -18,6 +18,7 @@ class M_novel extends CI_Model {
             unset($where['keyword']);
         }
 
+       ;
         $this->db->from('novel');
         $this->db->where($where);
         $this->db->like('judul', $keyword, 'both');

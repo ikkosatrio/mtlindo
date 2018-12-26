@@ -71,22 +71,22 @@ Dashboard - Administrasi
 					                    	<button type="button" class="btn btn-danger btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown"><i class="icon-cog5 position-left"></i> Action <span class="caret"></span></button>
 					                    	<ul class="dropdown-menu dropdown-menu-right">
 												<li>
-													<a href="{{base_url('superuser/chapter/update/'.$result->id_chapter)}}">
+													<a href="{{base_url('superuser/chapter/update/'.$result->id_chapter.'/?id_novel='.$novel->id_novel)}}">
 														<i class="fa fa-edit"></i> Ubah Chapter
 													</a>
 												</li>
 												<li>
-													<a href="{{base_url('superuser/chapter/export/'.$result->id_chapter)}}">
+													<a href="{{base_url('superuser/chapter/export/'.$result->id_chapter.'/?id_novel='.$novel->id_novel)}}">
 														<i class="fa fa-edit"></i> Export Excel
 													</a>
 												</li>
 												<li>
-													<a href="{{base_url('superuser/glossary/?id_chapter='.$result->id_chapter)}}">
+													<a href="{{base_url('superuser/glossary/?id_chapter='.$result->id_chapter.'/?id_novel='.$novel->id_novel)}}">
 														<i class="fa fa-edit"></i> Glossary
 													</a>
 												</li>
 												<li><a href="javascript:void(0)" onclick="deleteIt(this)" 
-												data-url="{{base_url('superuser/chapter/deleted/'.$result->id_chapter)}}">
+												data-url="{{base_url('superuser/chapter/deleted/'.$result->id_chapter.'/?id_novel='.$novel->id_novel)}}">
 														<i class="fa fa-trash"></i> Hapus Chapter
 													</a>
 												</li>

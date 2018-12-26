@@ -52,14 +52,14 @@ Dashboard - Administrasi
 										<div class="col-lg-10">
 											<input type="hidden" name="id_novel" value="{{$novel->id_novel}}">
 											<input class="form-control" type="text" placeholder="Nama Chapter" name="judul"
-											value="{{ ($type=='create') ? '' : $chapter->nama }}" required>
+											value="{{ ($type=='create') ? '' : $chapter->judul }}" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Content Chapter <span class="text-danger"><b>*</b></span></label>
 										<div class="col-lg-10">
-											<textarea rows="10" id="editor-full" cols="100" class="wysihtml5 wysihtml5-default2 form-control"  name="content" >{!! ($type=='create') ? '' : $chapter->deskripsi_kat !!}</textarea>
+											<textarea rows="10" id="editor-full" cols="100" class="wysihtml5 wysihtml5-default2 form-control"  name="content" >{!! ($type=='create') ? '' : $chapter->content !!}</textarea>
 										</div>
 									</div>
 
@@ -71,15 +71,15 @@ Dashboard - Administrasi
 										<label class="col-lg-2 control-label">Judul Chapter <span class="text-danger"><b>*</b></span></label>
 										<div class="col-lg-10">
 											<input type="hidden" name="id_novel" value="{{$novel->id_novel}}">
-											<input id="judul_en" class="form-control" type="text" placeholder="Nama Chapter" name="judul"
-												   value="{{ ($type=='create') ? '' : $chapter->nama }}" required>
+											<input id="judul_en" class="form-control" type="hidden" placeholder="Nama Chapter" name="judul"
+												   value="{{ ($type=='create') ? '' : $chapter->judul }}" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Content Chapter <span class="text-danger"><b>*</b></span></label>
 										<div class="col-lg-10">
-											<textarea id="content_en" rows="10" id="content_en" cols="100" class="wysihtml5 wysihtml5-default2 form-control"  name="content_en" >{!! ($type=='create') ? '' : $chapter->deskripsi_kat !!}</textarea>
+											<textarea id="content_en" rows="10" id="content_en" cols="100" class="wysihtml5 wysihtml5-default2 form-control"  name="content_en" >{!! ($type=='create') ? '' : $chapter->content_en !!}</textarea>
 										</div>
 									</div>
 
@@ -91,15 +91,15 @@ Dashboard - Administrasi
 										<label class="col-lg-2 control-label">Judul Chapter <span class="text-danger"><b>*</b></span></label>
 										<div class="col-lg-10">
 											<input type="hidden" name="id_novel" value="{{$novel->id_novel}}">
-											<input id="judul_ch" class="form-control" type="text" placeholder="Nama Chapter" name="judul"
-												   value="{{ ($type=='create') ? '' : $chapter->nama }}" required>
+											<input id="judul_ch" class="form-control" type="hidden" placeholder="Nama Chapter" name="judul"
+												   value="{{ ($type=='create') ? '' : $chapter->judul }}" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Content Chapter <span class="text-danger"><b>*</b></span></label>
 										<div class="col-lg-10">
-											<textarea id="content_ch" rows="10" id="content_ch" cols="100" class="wysihtml5 wysihtml5-default2 form-control"  name="content_ch" >{!! ($type=='create') ? '' : $chapter->deskripsi_kat !!}</textarea>
+											<textarea id="content_ch" rows="10" id="content_ch" cols="100" class="wysihtml5 wysihtml5-default2 form-control"  name="content_ch" >{!! ($type=='create') ? '' : $chapter->content_ch !!}</textarea>
 										</div>
 									</div>
 

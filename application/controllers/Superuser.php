@@ -1151,10 +1151,15 @@ class Superuser extends CI_Controller {
 
 			$judul     	= $this->input->post('judul');
 			$content  = $this->input->post('content');
+            $content_en  = $this->input->post('content_en');
+            $content_ch  = $this->input->post('content_ch');
+
 
 			$data = array(
 				'judul'       => $judul,
 				'content'   => $content,
+                'content_en'   => $content_en,
+                'content_ch'   => $content_ch,
 				'id_novel' => $this->input->post_get('id_novel'),
 			);
 
@@ -1197,6 +1202,9 @@ class Superuser extends CI_Controller {
 			$data['type']    = "update";
 			$where           = array('id_chapter' => $id);
 			$data['chapter'] = $this->m_chapter->detail($where,'chapter')->row();
+
+//			var_dump($data['chapter']);
+
 			echo $this->blade->nggambar('admin.chapter.content',$data);
 		}
 		else if ($url=="updated" && $id!=null && $this->input->is_ajax_request() == true) {
@@ -1204,10 +1212,14 @@ class Superuser extends CI_Controller {
 
 			$judul     	= $this->input->post('judul');
 			$content  = $this->input->post('content');
+            $content_en  = $this->input->post('content_en');
+            $content_ch  = $this->input->post('content_ch');
 
 			$data = array(
 				'judul'       => $judul,
 				'content'   => $content,
+                'content_en'   => $content_en,
+                'content_ch'   => $content_ch,
 				'id_novel' => $this->input->post_get('id_novel'),
 			);
 
