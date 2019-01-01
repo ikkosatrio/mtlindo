@@ -93,7 +93,7 @@
                                     <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
                                 </div>
 
-                                <p>{!!read_more($n->deskripsi,500)!!}</p>
+                                <p align="justify" style="font-family: {{$config->font_name}};">{!!read_more($n->deskripsi,500)!!}</p>
                                 <p><a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
                             </div>
                         </div>
